@@ -9,22 +9,24 @@ const urlsToCache = [
   'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js',
   // --- App-specific assets ---
   // City images (ensure paths are correct and relative to sw.js location if not absolute)
-  'docs/imagenes/buenosaires/buenosaires.jpg',
-  'docs/imagenes/rosario/Monumento-a-la-Bandera-1024x768.jpg',
-  'docs/imagenes/bariloche/emilio-lujan-HhobdGoYzaA-unsplash.jpg', // Corrected Bariloche image
-  'docs/imagenes/mendoza/Mendoza-Puente-del-Inca.jpg',
-  'docs/imagenes/malargue/malargue-cover.jpg',
-  'docs/imagenes/jujuy/jujuy-cover.jpg',
-  'docs/imagenes/iguazu/iguazu-cover.jpg',
-  'docs/imagenes/corrientes/corrientes-cover.jpg',
-  'docs/imagenes/ibera/ibera-cover.jpg',
+  // These paths become relative to public/ if sw.js is in public/
+  // or absolute paths if they start with /
+  '/docs/imagenes/buenosaires/buenosaires.jpg',
+  '/docs/imagenes/rosario/Monumento-a-la-Bandera-1024x768.jpg',
+  '/docs/imagenes/bariloche/emilio-lujan-HhobdGoYzaA-unsplash.jpg', // Corrected Bariloche image
+  '/docs/imagenes/mendoza/Mendoza-Puente-del-Inca.jpg',
+  '/docs/imagenes/malargue/malargue-cover.jpg',
+  '/docs/imagenes/jujuy/jujuy-cover.jpg',
+  '/docs/imagenes/iguazu/iguazu-cover.jpg',
+  '/docs/imagenes/corrientes/corrientes-cover.jpg',
+  '/docs/imagenes/ibera/ibera-cover.jpg',
   // Placeholder/default images
   'https://picsum.photos/seed/argentina/600/400', // Default city image
   // Agenda files
-  'docs/agenda/ariflier1970@gmail.com.ical.zip', // Example, add all relevant agenda files
+  '/docs/agenda/ariflier1970@gmail.com.ical.zip', // Example, add all relevant agenda files
   // Icons for manifest
-  'docs/imagenes/icons/icon-192x192.png',
-  'docs/imagenes/icons/icon-512x512.png',
+  '/docs/imagenes/icons/icon-192x192.png',
+  '/docs/imagenes/icons/icon-512x512.png',
   // --- ESM.sh modules ---
   // Note: Caching these helps with offline after first load, but the browser still needs to interpret index.tsx
   // For a fully robust offline experience for app logic, index.tsx would need to be pre-compiled to JS.
@@ -45,8 +47,16 @@ self.addEventListener('install', (event) => {
         // Use addAll with a catch for individual resource failures
         // This is important because if one resource fails, addAll fails entirely.
         const promises = urlsToCache.map(urlToCache => {
-          return cache.add(urlToCache).catch(err => {
-            console.warn(`[Service Worker] Failed to cache ${urlToCache}:`, err);
+          // For local assets moved to public, ensure the paths in urlsToCache are correct
+          // If sw.js is in public/, and docs/ is in public/, then './docs/...' becomes '/docs/...'
+          // or just 'docs/...' if relative to sw.js inside public/
+          // For simplicity, using absolute paths for assets from `public` like `/docs/...` is robust.
+          let correctedUrl = urlToCache;
+          if (urlToCache.startsWith('docs/')) {
+            correctedUrl = `/${urlToCache}`; // Make it absolute from root
+          }
+          return cache.add(correctedUrl).catch(err => {
+            console.warn(`[Service Worker] Failed to cache ${correctedUrl}:`, err);
           });
         });
         return Promise.all(promises);
@@ -81,7 +91,7 @@ self.addEventListener('fetch', (event) => {
   // Let the browser handle requests for scripts from esm.sh initially,
   // but cache them so they are available offline after the first successful load.
   // For other requests, use cache-first strategy.
-  const isEsmRequest = event.request.url.startsWith('https://esm.sh/');
+  // const isEsmRequest = event.request.url.startsWith('https://esm.sh/');
 
   event.respondWith(
     caches.match(event.request)
@@ -97,10 +107,18 @@ self.addEventListener('fetch', (event) => {
             if (networkResponse && networkResponse.status === 200) {
               // Check if it's a request we want to cache dynamically (e.g., esm.sh or other CDNs not in initial list)
               // Or if it's one of the initially defined URLs that might have failed to cache during install
-              const shouldCache = urlsToCache.includes(event.request.url) || 
-                                  event.request.url.startsWith('https://esm.sh/') ||
-                                  event.request.url.startsWith('https://cdn.tailwindcss.com') || // Redundant if in urlsToCache but safe
-                                  event.request.url.startsWith('https://cdnjs.cloudflare.com'); 
+              const requestUrl = event.request.url;
+              const isUrlToCache = urlsToCache.some(cachedUrl => {
+                // Adjust comparison for potentially relative paths in urlsToCache vs absolute requestUrl
+                if (cachedUrl.startsWith('./')) cachedUrl = cachedUrl.substring(1); // remove ./
+                if (!cachedUrl.startsWith('http') && !cachedUrl.startsWith('/')) cachedUrl = `/${cachedUrl}`; // make absolute if it's like docs/...
+                return requestUrl.endsWith(cachedUrl); // Simple check, might need refinement
+              });
+
+              const shouldCache = isUrlToCache || 
+                                  requestUrl.startsWith('https://esm.sh/') ||
+                                  requestUrl.startsWith('https://cdn.tailwindcss.com') || 
+                                  requestUrl.startsWith('https://cdnjs.cloudflare.com'); 
 
               if (shouldCache) {
                 // console.log('[Service Worker] Caching new resource:', event.request.url);

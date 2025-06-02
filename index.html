@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Argentina Family Itinerary</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#4F46E5">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#4F46E5"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
@@ -45,7 +44,9 @@
     "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
     "react-router-dom": "https://esm.sh/react-router-dom@^7.6.1",
     "@google/genai": "https://esm.sh/@google/genai@^1.3.0",
-    "uuid": "https://esm.sh/uuid@^11.1.0"
+    "uuid": "https://esm.sh/uuid@^11.1.0",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^6.3.5"
   }
 }
 </script>
@@ -53,11 +54,11 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
   <div id="root"></div>
-  <script type="module" src="./index.tsx"></script>
+  <script type="module" src="/src/index.tsx"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js') // Ensure sw.js is at the root
+        navigator.serviceWorker.register('/sw.js')
           .then(registration => {
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
           })
