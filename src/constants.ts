@@ -1,3 +1,4 @@
+
 import { City, Translations, Language, TransportLeg, Currency, PointOfInterest, AIPromptContent } from './types';
 
 export const LANGUAGES = [
@@ -26,92 +27,92 @@ const buenosAiresPois: PointOfInterest[] = [
 
 
 export const CITIES: City[] = [
-  { 
-    id: 'buenosaires', 
-    nameKey: 'buenosaires_title', 
-    coords: [-34.6118, -58.3960], 
-    image: '/docs/imagenes/buenosaires/buenosaires.jpg', 
+  {
+    id: 'buenosaires',
+    nameKey: 'buenosaires_title',
+    coords: [-34.6118, -58.3960],
+    image: 'docs/imagenes/buenosaires/buenosaires.jpg',
     descriptionKey: 'buenosaires_desc_main',
-    activitiesKey: 'buenosaires_activities_recommended', 
-    accommodationKey: 'buenosaires_accommodation_examples', 
+    activitiesKey: 'buenosaires_activities_recommended',
+    accommodationKey: 'buenosaires_accommodation_examples',
     budgetKey: 'buenosaires_budget_table',
     pointsOfInterest: buenosAiresPois,
   },
-  { 
-    id: 'rosario', 
-    nameKey: 'rosario_title', 
-    coords: [-32.9442, -60.6505], 
-    image: '/docs/imagenes/rosario/Monumento-a-la-Bandera-1024x768.jpg', 
+  {
+    id: 'rosario',
+    nameKey: 'rosario_title',
+    coords: [-32.9442, -60.6505],
+    image: 'docs/imagenes/rosario/Monumento-a-la-Bandera-1024x768.jpg',
     descriptionKey: 'rosario_desc_main',
     activitiesKey: 'rosario_activities_recommended',
     accommodationKey: 'rosario_accommodation_examples',
     budgetKey: 'rosario_budget_table'
   },
-  { 
-    id: 'bariloche', 
-    nameKey: 'bariloche_title', 
-    coords: [-41.1335, -71.3103], 
-    image: '/docs/imagenes/bariloche/emilio-lujan-HhobdGoYzaA-unsplash.jpg', 
+  {
+    id: 'bariloche',
+    nameKey: 'bariloche_title',
+    coords: [-41.1335, -71.3103],
+    image: 'docs/imagenes/bariloche/emilio-lujan-HhobdGoYzaA-unsplash.jpg',
     descriptionKey: 'bariloche_desc_main',
     activitiesKey: 'bariloche_activities_recommended',
     accommodationKey: 'bariloche_accommodation_examples',
     budgetKey: 'bariloche_budget_table'
   },
-  { 
-    id: 'mendoza', 
-    nameKey: 'mendoza_title', 
-    coords: [-32.8908, -68.8272], 
-    image: '/docs/imagenes/mendoza/Mendoza-Puente-del-Inca.jpg', 
+  {
+    id: 'mendoza',
+    nameKey: 'mendoza_title',
+    coords: [-32.8908, -68.8272],
+    image: 'docs/imagenes/mendoza/Mendoza-Puente-del-Inca.jpg',
     descriptionKey: 'mendoza_desc_main',
     activitiesKey: 'mendoza_activities_recommended',
     accommodationKey: 'mendoza_accommodation_examples',
     budgetKey: 'mendoza_budget_table'
   },
-  { 
-    id: 'malargue', 
-    nameKey: 'malargue_title', 
-    coords: [-35.4757, -69.5840], 
-    image: '/docs/imagenes/malargue/malargue-cover.jpg', 
+  {
+    id: 'malargue',
+    nameKey: 'malargue_title',
+    coords: [-35.4757, -69.5840],
+    image: 'docs/imagenes/malargue/malargue-cover.jpg',
     descriptionKey: 'malargue_desc_main',
     activitiesKey: 'malargue_activities_recommended',
     accommodationKey: 'malargue_accommodation_examples',
     budgetKey: 'malargue_budget_table'
   },
-  { 
-    id: 'jujuy', 
-    nameKey: 'jujuy_title', 
+  {
+    id: 'jujuy',
+    nameKey: 'jujuy_title',
     coords: [-24.1858, -65.2995],
-    image: '/docs/imagenes/jujuy/jujuy-cover.jpg', 
+    image: 'docs/imagenes/jujuy/jujuy-cover.jpg',
     descriptionKey: 'jujuy_desc_main',
     activitiesKey: 'jujuy_activities_recommended',
     accommodationKey: 'jujuy_accommodation_examples',
     budgetKey: 'jujuy_budget_table'
   },
-  { 
-    id: 'iguazu', 
-    nameKey: 'iguazu_title', 
+  {
+    id: 'iguazu',
+    nameKey: 'iguazu_title',
     coords: [-25.5952, -54.5732],
-    image: '/docs/imagenes/iguazu/iguazu-cover.jpg', 
+    image: 'docs/imagenes/iguazu/iguazu-cover.jpg',
     descriptionKey: 'iguazu_desc_main',
     activitiesKey: 'iguazu_activities_recommended',
     accommodationKey: 'iguazu_accommodation_examples',
     budgetKey: 'iguazu_budget_table'
   },
-  { 
-    id: 'corrientes', 
-    nameKey: 'corrientes_title', 
-    coords: [-27.4691, -58.8309], 
-    image: '/docs/imagenes/corrientes/corrientes-cover.jpg', 
+  {
+    id: 'corrientes',
+    nameKey: 'corrientes_title',
+    coords: [-27.4691, -58.8309],
+    image: 'docs/imagenes/corrientes/corrientes-cover.jpg',
     descriptionKey: 'corrientes_desc_main',
     activitiesKey: 'corrientes_activities_recommended',
     accommodationKey: 'corrientes_accommodation_examples',
     budgetKey: 'corrientes_budget_table'
   },
-  { 
-    id: 'ibera', 
-    nameKey: 'ibera_title', 
-    coords: [-28.539, -57.16], 
-    image: '/docs/imagenes/ibera/ibera-cover.jpg', 
+  {
+    id: 'ibera',
+    nameKey: 'ibera_title',
+    coords: [-28.539, -57.16],
+    image: 'docs/imagenes/ibera/ibera-cover.jpg',
     descriptionKey: 'ibera_desc_main',
     activitiesKey: 'ibera_activities_recommended',
     accommodationKey: 'ibera_accommodation_examples',
@@ -191,9 +192,9 @@ export const translations: Translations = {
     // Footer
     footerText: "© 2025 Viaje Familiar Argentina. Todos los derechos reservados.",
     // City Detail Page (generic titles, specific content comes from city_id + key)
-    activities: "Actividades Sugeridas", 
+    activities: "Actividades Sugeridas",
     accommodation: "Opciones de Alojamiento",
-    budget: "Presupuesto Estimado", 
+    budget: "Presupuesto Estimado",
 
     // City Titles (used as keys in CITIES array)
     buenosaires_title: "Buenos Aires",
@@ -226,7 +227,7 @@ export const translations: Translations = {
     buenosaires_coordinates: "- 34° 36' S 58° 22' 48\" W",
     buenosaires_events_agenda_text: "- **29/09/2025**: Festival de Tango al aire libre en Plaza Dorrego\n- **01/10/2025**: Noche de los Museos (entrada libre en museos seleccionados)",
     buenosaires_events_agenda_link_text: "Descargar agenda completa en formato iCal (.zip)",
-    buenosaires_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    buenosaires_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     buenosaires_family_tips: "- Las zonas turísticas son seguras y están bien conectadas por transporte público (tarjeta SUBE).\n- Hay muchas actividades gratuitas y para todas las edades.\n- Los fines de semana suelen haber espectáculos callejeros y ferias.\n- Se recomienda reservar alojamiento con anticipación en Palermo o Recoleta.",
     buenosaires_budget_table: "| Concepto                      | Precio estimado (USD) |\n|-------------------------------|:--------------------:|\n| Alojamiento (noche, familia)  | 50–120               |\n| Comida (por día, familia)     | 30–70                |\n| Transporte público (por día)  | 3–5                  |\n| Actividades y tours (por día) | 20–50                |\n| Entradas museos/atracciones   | 0–15                 |",
     buenosaires_cultural_tips: "- El idioma oficial es español (rioplatense, muy amigable).\n- Es común saludar con un beso en la mejilla.\n- Los horarios de comida suelen ser más tarde que en otros países (cena desde las 21:00).\n- El mate es la infusión nacional.",
@@ -266,21 +267,21 @@ export const translations: Translations = {
     corrientes_ai_prompt_menu: "Eres un experto en gastronomía litoraleña y nutrición. Genera un plan de menú de un día (desayuno, almuerzo, cena) para una familia que visita Corrientes, Argentina. Las opciones deben ser aptas para diabéticos, bajas en carbohidratos y, si es posible, sin gluten, con pescados de río como dorado o surubí. Considera estas preferencias adicionales del usuario: ",
     ibera_ai_prompt_menu: "Eres un experto en gastronomía regional de los Esteros del Iberá y nutrición. Genera un plan de menú de un día (desayuno, almuerzo, cena) para una familia que visita Iberá, Argentina. Las opciones deben ser aptas para diabéticos, bajas en carbohidratos y, si es posible, sin gluten, basadas en cocina casera y productos locales. Considera estas preferencias adicionales del usuario: ",
     generic_ai_prompt_menu: "Eres un experto en gastronomía argentina y nutrición. Genera un plan de menú de un día (desayuno, almuerzo, cena) para una familia que visita {cityName}, Argentina. Las opciones deben ser aptas para diabéticos, bajas en carbohidratos y, si es posible, sin gluten. Incorpora platos típicos locales adaptados. Considera estas preferencias adicionales del usuario: ",
-    
+
     ai_accommodation_title: "Sugerencias de Alojamiento con IA",
     ai_accommodation_description: "Obtén recomendaciones de alojamiento en {cityName}, considerando opciones familiares, seguras y bien ubicadas.",
     ai_accommodation_button: "Generar Sugerencias",
     ai_accommodation_input_placeholder: "Detalla preferencias (ej: 'con piscina', 'cerca del centro')...",
     buenosaires_ai_prompt_accommodation: "Eres un asistente de viajes experto en Buenos Aires. Genera 3-5 sugerencias de alojamiento en Buenos Aires, Argentina, ideales para una familia con 2 hijos. Considera opciones seguras, bien ubicadas y con servicios adecuados para familias. Incluye diferentes tipos (hoteles, apartamentos, Airbnb). Ten en cuenta esta información adicional del usuario: ",
     generic_ai_prompt_accommodation: "Eres un asistente de viajes experto. Genera 3-5 sugerencias de alojamiento en {cityName}, Argentina, ideales para una familia con 2 hijos. Considera opciones seguras, bien ubicadas y con servicios adecuados para familias. Incluye diferentes tipos (hoteles, apartamentos, Airbnb). Ten en cuenta esta información adicional del usuario: ",
-    
+
     ai_family_tips_title: "Consejos Adicionales para Familias con IA",
     ai_family_tips_description: "Recibe consejos personalizados para disfrutar {cityName} en familia, incluyendo actividades, seguridad y logística.",
     ai_family_tips_button: "Generar Consejos",
     ai_family_tips_input_placeholder: "Indica edades de los niños o intereses específicos...",
     buenosaires_ai_prompt_family_tips: "Eres un guía turístico experto en Buenos Aires para familias. Proporciona 5 consejos prácticos y personalizados para una familia con niños que visita Buenos Aires. Cubre actividades para niños, seguridad, transporte familiar y cómo maximizar la estadía. Considera esta información adicional del usuario: ",
     generic_ai_prompt_family_tips: "Eres un guía turístico experto para familias. Proporciona 5 consejos prácticos y personalizados para una familia con niños que visita {cityName}, Argentina. Cubre actividades para niños, seguridad, transporte familiar y cómo maximizar la estadía. Considera esta información adicional del usuario: ",
-    
+
     ai_budget_analysis_title: "Análisis de Presupuesto con IA",
     ai_budget_analysis_description: "Obtén un análisis y desglose del presupuesto orientativo para tu estadía en {cityName}, con posibles optimizaciones.",
     ai_budget_analysis_button: "Analizar Presupuesto",
@@ -288,7 +289,7 @@ export const translations: Translations = {
     buenosaires_ai_prompt_budget_analysis: "Eres un asesor financiero de viajes. Analiza el presupuesto orientativo para una familia en Buenos Aires (USD): Alojamiento (noche): 50-120, Comida (día): 30-70, Transporte (día): 3-5, Actividades (día): 20-50, Entradas: 0-15. Proporciona un desglose estimado por día y categoría, y sugiere 2-3 formas de optimizar este presupuesto sin sacrificar la experiencia. Considera estas notas del usuario: ",
     generic_ai_prompt_budget_analysis: "Eres un asesor financiero de viajes. Analiza el presupuesto orientativo para una familia en {cityName}, Argentina. Consulta el presupuesto detallado de la ciudad y proporciona un desglose estimado por día y categoría, y sugiere 2-3 formas de optimizar este presupuesto sin sacrificar la experiencia. Considera estas notas del usuario: ",
     ai_translate_button_text: "Traducir respuesta a {lang}",
-    
+
     // ROSARIO (Detailed content)
     rosario_dates_duration: "- **Estadía**: 02/10 al 05/10 (4 días)\n- **Cómo llegar**: Vuelo desde Buenos Aires / Bus de larga distancia",
     rosario_must_see: "- [Monumento Nacional a la Bandera](https://www.monumentoalabandera.gob.ar/)\n- [Parque de la Independencia](https://www.rosario.gob.ar/web/ciudad/parques-y-plazas/parque-de-la-independencia)\n- Costanera del Río Paraná\n- [Isla de los Inventos](https://www.rosario.gob.ar/web/ciudad/cultura/infancia-y-juventud/isla-de-los-inventos)\n- Museo de Ciencias Naturales \"Dr. Ángel Gallardo\"\n- Boulevard Oroño",
@@ -298,13 +299,13 @@ export const translations: Translations = {
     rosario_coordinates: "- 32° 57' S 60° 38' O",
     rosario_events_agenda_text: "- **(Consultar agenda local)**: Rosario tiene una activa vida cultural con festivales, ferias y espectáculos.\n- **(Consultar agenda local)**: Eventos deportivos o musicales en el Parque de la Independencia.",
     rosario_events_agenda_link_text: "Descargar agenda completa en formato iCal (.zip)",
-    rosario_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    rosario_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     rosario_family_tips: "- Aprovechen los amplios espacios verdes y la costanera para actividades al aire libre.\n- El transporte público es eficiente (tarjeta MOVI).\n- La ciudad es segura en las zonas turísticas y céntricas.\n- Consideren un paseo en barco para ver la ciudad desde el río.\n- En la Costanera hay muchas opciones de restaurantes con juegos para niños.",
     rosario_budget_table: "| Concepto                      | Precio estimado (USD) |\n|-------------------------------|:--------------------:|\n| Alojamiento (noche, familia)  | 50–120               |\n| Comida (por día, familia)     | 30–70                |\n| Transporte público (por día)  | 3–5                  |\n| Actividades y tours (por día) | 20–50                |\n| Entradas museos/atracciones   | 0–15                 |",
     rosario_cultural_tips: "- El \"Che\" Guevara nació cerca de Rosario.\n- Rosario es cuna de grandes futbolistas (Messi, Di María) y artistas.\n- La siesta es común en las horas centrales del día, afectando horarios comerciales.\n- Los rosarinos son conocidos por su hospitalidad.",
     rosario_map_link_text: "Ver mapa más grande de Rosario",
     rosario_map_link_url: "https://www.openstreetmap.org/#map=12/-32.944/-60.655",
-    
+
     // BARILOCHE (Detailed content)
     bariloche_dates_duration: "- **Estadía**: 05/10 al 09/10 (5 días)\n- **Cómo llegar**: Vuelo desde Rosario / Bus de larga distancia",
     bariloche_must_see: "- **Centro Cívico**: Corazón de la ciudad con arquitectura alpina.\n- **Lago Nahuel Huapi**: Para paseos en barco y actividades acuáticas.\n- **Circuito Chico**: Recorrido panorámico con vistas espectaculares.\n- **Cerro Catedral**: Centro de esquí en invierno, trekking y vistas en verano.\n- **Cerro Campanario**: Votado entre las mejores vistas del mundo, con aerosilla.\n- **Bosque de Arrayanes**: Un bosque único al que se llega en barco.\n- **Puerto Blest y Cascada de los Cántaros**: Excursión en barco por el lago.",
@@ -314,7 +315,7 @@ export const translations: Translations = {
     bariloche_coordinates: "- 41° 08' S 71° 18' O",
     bariloche_events_agenda_text: "- **(Consultar agenda local)**: Eventos de invierno (Fiesta Nacional de la Nieve).\n- **(Consultar agenda local)**: Festivales de música o gastronomía en otras estaciones.",
     bariloche_events_agenda_link_text: "Descargar agenda completa en formato iCal (.zip)",
-    bariloche_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    bariloche_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     bariloche_family_tips: "- Vístanse en capas (la temperatura puede variar mucho).\n- Reserven excursiones y alojamiento con anticipación, especialmente en temporada alta.\n- Hay muchas actividades para niños: parques de nieve, senderos fáciles, paseos en barco.\n- La zona es muy segura para explorar en familia.\n- Prueben los chocolates locales, pero con moderación si hay restricciones.",
     bariloche_budget_table: "| Concepto                      | Precio estimado (USD) |\n|-------------------------------|:--------------------:|\n| Alojamiento (noche, familia)  | 70–180               |\n| Comida (por día, familia)     | 40–90                |\n| Transporte local (por día)    | 5–15                 |\n| Actividades y tours (por día) | 30–80                |\n| Entradas museos/atracciones   | 0–20                 |",
     bariloche_cultural_tips: "- Bariloche tiene una fuerte influencia de inmigrantes suizos y alemanes, visible en su arquitectura y gastronomía.\n- Es un destino popular para viajes de egresados, por lo que puede haber muchos jóvenes en ciertas épocas.\n- La cultura de montaña es muy arraigada: respeto por la naturaleza, deportes al aire libre.",
@@ -329,7 +330,7 @@ export const translations: Translations = {
     mendoza_coordinates: "- 32° 53' S 68° 50' O",
     mendoza_events_agenda_text: "- **(Consultar agenda local)**: Vendimia (Febrero/Marzo).\n- **(Consultar agenda local)**: Ferias de artesanos y mercados de productos locales.",
     mendoza_events_agenda_link_text: "Descargar agenda completa en formato iCal (.zip)",
-    mendoza_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    mendoza_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     mendoza_family_tips: "- Consideren alquilar un auto para explorar las bodegas y la alta montaña a su propio ritmo.\n- Siempre lleven agua y protector solar, el clima es seco y soleado.\n- Algunas bodegas tienen áreas de juego o actividades para niños mientras los adultos degustan.\n- La ciudad es muy arbolada y con canales de riego, lo que la hace agradable para caminar.\n- En la alta montaña, las temperaturas pueden bajar considerablemente, incluso en verano.",
     mendoza_budget_table: "| Concepto                      | Precio estimado (USD) |\n|-------------------------------|:--------------------:|\n| Alojamiento (noche, familia)  | 60–160               |\n| Comida (por día, familia)     | 40–80                |\n| Transporte local (por día)    | 5–20                 |\n| Actividades y tours (por día) | 25–70                |\n| Entradas museos/atracciones   | 0–20                 |",
     mendoza_cultural_tips: "- La cultura del vino es central en Mendoza.\n- La \"siesta\" es una costumbre muy arraigada, con muchos comercios cerrando al mediodía.\n- Los mendocinos son muy orgullosos de su provincia y su producción vitivinícola.\n- La calidez de su gente es notable.",
@@ -344,13 +345,13 @@ export const translations: Translations = {
     malargue_coordinates: "- 35° 28' S 69° 35' O",
     malargue_events_agenda_text: "- **(Consultar agenda local)**: Fiesta Nacional del Chivo (Enero).\n- **(Consultar agenda local)**: Eventos relacionados con astronomía o geología.",
     malargue_events_agenda_link_text: "Descargar agenda completa en formato iCal (.zip)",
-    malargue_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    malargue_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     malargue_family_tips: "- Para explorar los atractivos naturales, es casi indispensable contar con un vehículo propio o contratar excursiones organizadas.\n- La Caverna de las Brujas puede ser un poco exigente físicamente para niños muy pequeños o personas con movilidad reducida.\n- Lleven abundante agua y ropa adecuada para cambios bruscos de temperatura, especialmente si visitan áreas de alta montaña o desierto.\n- La señal de celular puede ser limitada fuera de la ciudad.\n- Respeten las indicaciones de los guías en las reservas naturales.",
     malargue_budget_table: "| Concepto                      | Precio estimado (USD) |\n|-------------------------------|:--------------------:|\n| Alojamiento (noche, familia)  | 40–100               |\n| Comida (por día, familia)     | 25–60                |\n| Transporte local (por día)    | 5–15 (excl. alquiler auto) |\n| Actividades y tours (por día) | 20–60 (excl. Payunia) |\n| Entradas museos/atracciones   | 0–15                 |",
     malargue_cultural_tips: "- Malargüe es una región más rural y con una fuerte identidad de campo.\n- La vida nocturna es limitada; el foco está en la naturaleza y el descanso.\n- El chivito a la llama es una tradición culinaria muy arraigada y un imperdible local.\n- La amabilidad y la hospitalidad de su gente son características destacadas.",
     malargue_map_link_text: "Ver mapa más grande de Malargüe",
     malargue_map_link_url: "https://www.openstreetmap.org/#map=12/-35.478/-69.585",
-    
+
     jujuy_dates_duration: "- **Estadía**: 16/10 al 20/10 (5 días)\n- **Cómo llegar**: Vuelo desde Mendoza (con escala) / Bus de larga distancia.",
     jujuy_must_see: "- **Quebrada de Humahuaca**: Patrimonio de la Humanidad, con paisajes como la Paleta del Pintor en Maimará y el Cerro de los Siete Colores en Purmamarca.\n- **Purmamarca**: Pueblo pintoresco al pie del Cerro de los Siete Colores.\n- **Tilcara**: Ciudad con la Pucará (fortaleza prehispánica) y museos.\n- **Humahuaca**: Histórica ciudad con su Monumento a la Independencia y la Torre del Cabildo.\n- **Salinas Grandes**: Desierto de sal inmenso (compartido con Salta, accesible desde Purmamarca).\n- **Garganta del Diablo (Tilcara)**: Formación rocosa con cascada.\n- **San Salvador de Jujuy**: La capital, con su casco histórico y la Casa de Gobierno.",
     jujuy_activities_recommended: "- Recorridos por los pueblos de la Quebrada y sus mercados artesanales.\n- Caminatas suaves en Purmamarca o Tilcara.\n- Visita a la Pucará de Tilcara.\n- Excursión a Salinas Grandes (llevar protector solar y gafas de sol).\n- Observación de estrellas en la Quebrada (poca contaminación lumínica).\n- Disfrutar de la música folclórica y las danzas locales.\n- Probar las empanadas jujeñas y tamales.",
@@ -359,13 +360,13 @@ export const translations: Translations = {
     jujuy_coordinates: "- San Salvador de Jujuy: 24° 11' S 65° 18' O\n- Purmamarca: 23° 44' S 65° 30' O",
     jujuy_events_agenda_text: "- **(Consultar agenda local)**: Carnaval (Febrero/Marzo, muy concurrido).\n- **(Consultar agenda local)**: Festivales folclóricos y religiosos.",
     jujuy_events_agenda_link_text: "Descargar agenda completa en formato iCal (.zip)",
-    jujuy_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    jujuy_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     jujuy_family_tips: "- La altura puede afectar a algunos viajeros (San Salvador está a ~1200m, Purmamarca a ~2300m, Humahuaca a ~3000m, Salinas Grandes a ~3500m). Hidrátense bien y caminen despacio los primeros días.\n- Lleven protector solar, sombrero y gafas de sol, la radiación solar es alta.\n- Vístanse en capas, las temperaturas varían mucho entre el día y la noche.\n- El alquiler de auto es recomendable para recorrer la Quebrada con libertad.\n- Siempre tengan cambio y billetes pequeños, especialmente en mercados locales.",
     jujuy_budget_table: "| Concepto                      | Precio estimado (USD) |\n|-------------------------------|:--------------------:|\n| Alojamiento (noche, familia)  | 40–110               |\n| Comida (por día, familia)     | 25–65                |\n| Transporte local (por día)    | 5–20                 |\n| Actividades y tours (por día) | 15–50                |\n| Entradas museos/atracciones   | 0–10                 |",
     jujuy_cultural_tips: "- La cultura andina es muy presente: respeto a la Pachamama (Madre Tierra), rituales, música (quenas, charangos).\n- El idioma español con influencia quechua es común.\n- La artesanía local es muy rica: textiles de llama/alpaca, cerámicas, trabajos en madera.\n- La amabilidad de la gente es una característica destacada.",
     jujuy_map_link_text: "Ver mapa más grande de Jujuy",
     jujuy_map_link_url: "https://www.openstreetmap.org/#map=10/-23.597/-65.405",
-    
+
     iguazu_dates_duration: "- **Estadía**: 20/10 al 24/10 (5 días)\n- **Cómo llegar**: Vuelo desde Jujuy (con escala en Buenos Aires) / Bus de larga distancia.",
     iguazu_must_see: "- **Parque Nacional Iguazú (lado argentino)**: Con pasarelas sobre las cataratas, la Garganta del Diablo y el Tren Ecológico.\n- **Parque Nacional do Iguaçu (lado brasileño)**: Ofrece una vista panorámica impresionante de las cataratas.\n- **Hito de las Tres Fronteras**: Punto de encuentro de Argentina, Brasil y Paraguay.\n- **Güira Oga (Refugio de Animales Silvestres)**: Centro de rescate y rehabilitación de fauna.\n- **Jardín de los Picaflores**: Un lugar mágico para observar colibríes de cerca.\n- **Aripuca**: Un emprendimiento turístico cultural que revaloriza el bosque misionero.\n- **Museo de Cera**: Atracción familiar.",
     iguazu_activities_recommended: "- Caminatas por las pasarelas del lado argentino y brasileño de las cataratas.\n- Gran Aventura (paseo en gomón bajo las cataratas) – apto para edades adecuadas y sin restricciones de salud.\n- Navegación al atardecer por el río Iguazú.\n- Visita al Hito de las Tres Fronteras al atardecer.\n- Recorrer el Duty Free Shop (lado argentino).\n- Visitar el Parque das Aves (lado brasileño, si se cruza la frontera).\n- Explorar el Parque Nacional por sus diversos senderos.",
@@ -374,7 +375,7 @@ export const translations: Translations = {
     iguazu_coordinates: "- Puerto Iguazú: 25° 36' S 54° 34' O\n- Cataratas del Iguazú: 25° 40' S 54° 26' O",
     iguazu_events_agenda_text: "- **(Consultar agenda local)**: Eventos culturales o festivales locales.\n- **(Consultar agenda local)**: La principal atracción son las cataratas y la naturaleza.",
     iguazu_events_agenda_link_text: "Descargar agenda completa en formato iCal (.zip)",
-    iguazu_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    iguazu_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     iguazu_family_tips: "- Lleven repelente de insectos (fundamental), protector solar, sombrero y ropa liviana.\n- Usen calzado cómodo y antideslizante para las pasarelas.\n- En la Gran Aventura, se mojarán por completo; lleven ropa de recambio.\n- Si planean cruzar a Brasil, verifiquen los requisitos de visa y pasaporte para todos los integrantes de la familia.\n- Los monos y coatíes son comunes en el parque, no los alimenten ni los toquen.\n- El agua embotellada es recomendable.",
     iguazu_budget_table: "| Concepto                      | Precio estimado (USD) |\n|-------------------------------|:--------------------:|\n| Alojamiento (noche, familia)  | 60–150               |\n| Comida (por día, familia)     | 30–75                |\n| Transporte local (por día)    | 5–20                 |\n| Actividades y tours (por día) | 30–80                |\n| Entradas museos/atracciones   | 25–40 (solo cataratas) |",
     iguazu_cultural_tips: "- La cultura de la región está muy influenciada por las tres fronteras (Argentina, Brasil, Paraguay).\n- El guaraní es un idioma cooficial en algunas zonas, aunque el español es dominante.\n- La mandioca es un alimento básico en la dieta local.\n- La calidez del clima se refleja en el ritmo de vida.",
@@ -389,7 +390,7 @@ export const translations: Translations = {
     corrientes_coordinates: "- 27° 28' S 58° 49' O",
     corrientes_events_agenda_text: "- **(Consultar agenda local)**: Festival Nacional del Chamamé (Enero).\n- **(Consultar agenda local)**: Carnavales correntinos (Enero/Febrero).",
     corrientes_events_agenda_link_text: "Descargar agenda completa en formato iCal (.zip)",
-    corrientes_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    corrientes_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     corrientes_family_tips: "- La ciudad es cálida y húmeda; lleven ropa ligera, sombrero y protector solar.\n- Es fundamental llevar repelente de insectos, especialmente si planean estar cerca del río.\n- Disfruten de la Costanera al atardecer, es un paseo muy popular.\n- Los correntinos son muy amables y hospitalarios.\n- Consideren un viaje en lancha para ver la ciudad desde el río.",
     corrientes_budget_table: "| Concepto                      | Precio estimado (USD) |\n|-------------------------------|:--------------------:|\n| Alojamiento (noche, familia)  | 40–100               |\n| Comida (por día, familia)     | 25–60                |\n| Transporte local (por día)    | 3–10                 |\n| Actividades y tours (por día) | 10–40                |\n| Entradas museos/atracciones   | 0–10                 |",
     corrientes_cultural_tips: "- El chamamé es el ritmo musical y danza por excelencia de la provincia.\n- El guaraní es un idioma cooficial y su influencia se siente en el dialecto local.\n- La devoción a la Virgen de Itatí es muy fuerte.\n- El tereré (mate frío) es una bebida muy popular, especialmente en verano.",
@@ -404,13 +405,13 @@ export const translations: Translations = {
     ibera_coordinates: "- Colonia Carlos Pellegrini: 28° 32' S 57° 11' O",
     ibera_events_agenda_text: "- **(Consultar agenda local)**: El foco es la naturaleza y la vida silvestre.\n- **(Consultar agenda local)**: Posibles charlas o talleres sobre conservación.",
     ibera_events_agenda_link_text: "Descargar agenda completa en formato iCal (.zip)",
-    ibera_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    ibera_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     ibera_family_tips: "- **Repelente de insectos es ABSOLUTAMENTE CRUCIAL.** Llevar en gran cantidad.\n- Protector solar, sombrero y ropa de manga larga para protegerse del sol y los insectos.\n- Binoculares para observar aves y fauna.\n- Reserven alojamiento y excursiones con mucha anticipación, la oferta es limitada.\n- La mayoría de las actividades son al aire libre; estén preparados para diferentes condiciones climáticas.\n- Ideal para niños interesados en la naturaleza y los animales.",
     ibera_budget_table: "| Concepto                      | Precio estimado (USD) |\n|-------------------------------|:--------------------:|\n| Alojamiento (noche, familia)  | 70–200+ (incl. excursiones/comidas) |\n| Comida (por día, familia)     | Incluido en posada (generalmente) |\n| Transporte local (por día)    | 0–10 (dentro del pueblo) |\n| Actividades y tours (por día) | 50–100+ (según excursiones) |\n| Entradas museos/atracciones   | 0–10                 |",
     ibera_cultural_tips: "- La cultura guaraní y el respeto por la naturaleza son muy fuertes.\n- El ritmo de vida es tranquilo y en contacto con la naturaleza.\n- La hospitalidad de los lugareños es destacada.\n- Aprender algunas palabras en guaraní puede ser divertido para los niños.",
     ibera_map_link_text: "Ver mapa más grande de Esteros del Iberá (Colonia Carlos Pellegrini)",
     ibera_map_link_url: "https://www.openstreetmap.org/#map=13/-28.537/-57.140",
-    
+
     // Transport Leg Specific Keys
     transport_mean_bus: "Bus",
     transport_time_4h: "4 h",
@@ -467,7 +468,7 @@ export const translations: Translations = {
     conversorTitulo: "ממיר מטבעות",
     convertirBtn: "המר",
     montoPlaceholder: "סכום",
-    
+
     // Section Titles for Detail Page
     section_title_dates_duration: "תאריכים ומשך זמן",
     section_title_must_see: "מקומות שאסור לפספס",
@@ -526,7 +527,7 @@ export const translations: Translations = {
     buenosaires_coordinates: "- 34° 36' דרום 58° 22' 48\" מערב",
     buenosaires_events_agenda_text: "- **29/09/2025**: פסטיבל טנגו באוויר הפתוח בפלאסה דורגו\n- **01/10/2025**: ליל המוזיאונים (כניסה חופשית למוזיאונים נבחרים)",
     buenosaires_events_agenda_link_text: "הורד לוח אירועים מלא בפורמט iCal (.zip)",
-    buenosaires_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    buenosaires_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     buenosaires_family_tips: "- האזורים התיירותיים בטוחים ומחוברים היטב לתחבורה ציבורית (כרטיס SUBE).\n- ישנן פעילויות רבות בחינם ולכל הגילאים.\n- בסופי שבוע יש בדרך כלל מופעי רחוב וירידים.\n- מומלץ להזמין מקומות לינה מראש בפלרמו או רקולטה.",
     buenosaires_budget_table: "| קונספט                      | מחיר משוער (USD) |\n|-------------------------------|:--------------------:|\n| לינה (לילה, משפחה)          | 50–120               |\n| אוכל (ליום, משפחה)          | 30–70                |\n| תחבורה ציבורית (ליום)       | 3–5                  |\n| פעילויות וסיורים (ליום)     | 20–50                |\n| כניסות למוזיאונים/אטרקציות | 0–15                 |",
     buenosaires_cultural_tips: "- השפה הרשמית היא ספרדית (ריו פלטנסה, מאוד ידידותית).\n- נהוג לברך בנשיקה על הלחי.\n- שעות הארוחות הן בדרך כלל מאוחרות יותר מאשר במדינות אחרות (ארוחת ערב החל מ-21:00).\n- מאטה הוא המשקה הלאומי.",
@@ -573,7 +574,7 @@ export const translations: Translations = {
     ai_accommodation_input_placeholder: "פרט העדפות (למשל 'עם בריכה', 'קרוב למרכז')...",
     buenosaires_ai_prompt_accommodation: "אתה סוכן נסיעות מומחה לבואנוס איירס. צור 3-5 הצעות לינה בבואנוס איירס, ארגנטינה, אידיאליות למשפחה עם 2 ילדים. קח בחשבון אפשרויות בטוחות, ממוקמות היטב ועם שירותים מתאימים למשפחות. כלול סוגים שונים (בתי מלון, דירות, Airbnb). קח בחשבון מידע נוסף זה מהמשתמש: ",
     generic_ai_prompt_accommodation: "אתה סוכן נסיעות מומחה. צור 3-5 הצעות לינה ב-{cityName}, ארגנטינה, אידיאליות למשפחה עם 2 ילדים. קח בחשבון אפשרויות בטוחות, ממוקמות היטב ועם שירותים מתאימים למשפחות. כלול סוגים שונים (בתי מלון, דירות, Airbnb). קח בחשבון מידע נוסף זה מהמשתמש: ",
-    
+
     ai_family_tips_title: "טיפים נוספים למשפחות עם בינה מלאכותית",
     ai_family_tips_description: "קבלו טיפים מותאמים אישית לבילוי ב-{cityName} עם המשפחה, כולל פעילויות, בטיחות ולוגיסטיקה.",
     ai_family_tips_button: "ייצר טיפים",
@@ -598,7 +599,7 @@ export const translations: Translations = {
     rosario_coordinates: "- 32° 57' דרום 60° 38' מערב",
     rosario_events_agenda_text: "- **(יש לבדוק לוח אירועים מקומי)**: לרוסאריו חיי תרבות פעילים עם פסטיבלים, ירידים ומופעים.\n- **(יש לבדוק לוח אירועים מקומי)**: אירועי ספורט או מוזיקה בפארק העצמאות.",
     rosario_events_agenda_link_text: "הורד לוח אירועים מלא בפורמט iCal (.zip)",
-    rosario_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    rosario_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     rosario_family_tips: "- נצלו את המרחבים הירוקים הרחבים והטיילת לפעילויות באוויר הפתוח.\n- התחבורה הציבורית יעילה (כרטיס MOVI).\n- העיר בטוחה באזורים התיירותיים ובמרכז.\n- שקלו שייט כדי לראות את העיר מהנהר.\n- בטיילת יש אפשרויות רבות למסעדות עם משחקים לילדים.",
     rosario_budget_table: "| קונספט                      | מחיר משוער (USD) |\n|-------------------------------|:--------------------:|\n| לינה (לילה, משפחה)          | 50–120               |\n| אוכל (ליום, משפחה)          | 30–70                |\n| תחבורה ציבורית (ליום)       | 3–5                  |\n| פעילויות וסיורים (ליום)     | 20–50                |\n| כניסות למוזיאונים/אטרקציות | 0–15                 |",
     rosario_cultural_tips: "- \"צ'ה\" גווארה נולד ליד רוסאריו.\n- רוסאריו היא מולדתם של כדורגלנים גדולים (מסי, די מריה) ואמנים.\n- הסייסטה נפוצה בשעות הצהריים, ומשפיעה על שעות הפעילות של החנויות.\n- תושבי רוסאריו ידועים בהכנסת האורחים שלהם.",
@@ -613,7 +614,7 @@ export const translations: Translations = {
     bariloche_coordinates: "- 41° 08' דרום 71° 18' מערב",
     bariloche_events_agenda_text: "- **(יש לבדוק לוח אירועים מקומי)**: אירועי חורף (פסטיבל השלג הלאומי).\n- **(יש לבדוק לוח אירועים מקומי)**: פסטיבלי מוזיקה או גסטרונומיה בעונות אחרות.",
     bariloche_events_agenda_link_text: "הורד לוח אירועים מלא בפורמט iCal (.zip)",
-    bariloche_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    bariloche_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     bariloche_family_tips: "- התלבשו בשכבות (הטמפרטורה יכולה להשתנות מאוד).\n- הזמינו טיולים ולינה מראש, במיוחד בעונת השיא.\n- יש הרבה פעילויות לילדים: פארקי שלג, מסלולי הליכה קלים, שייט.\n- האזור בטוח מאוד לטיולים משפחתיים.\n- טעמו את השוקולדים המקומיים, אך במתינות אם יש מגבלות.",
     bariloche_budget_table: "| קונספט                      | מחיר משוער (USD) |\n|-------------------------------|:--------------------:|\n| לינה (לילה, משפחה)          | 70–180               |\n| אוכל (ליום, משפחה)          | 40–90                |\n| תחבורה מקומית (ליום)        | 5–15                 |\n| פעילויות וסיורים (ליום)     | 30–80                |\n| כניסות למוזיאונים/אטרקציות | 0–20                 |",
     bariloche_cultural_tips: "- לברילוצ'ה השפעה חזקה של מהגרים שוויצרים וגרמנים, הנראית בארכיטקטורה ובגסטרונומיה שלה.\n- זהו יעד פופולרי לטיולי סיום תיכון, כך שייתכנו צעירים רבים בתקופות מסוימות.\n- תרבות ההרים מושרשת מאוד: כבוד לטבע, ספורט באוויר הפתוח.",
@@ -628,7 +629,7 @@ export const translations: Translations = {
     mendoza_coordinates: "- 32° 53' דרום 68° 50' מערב",
     mendoza_events_agenda_text: "- **(יש לבדוק לוח אירועים מקומי)**: וונדימיה (פברואר/מרץ).\n- **(יש לבדוק לוח אירועים מקומי)**: ירידי אומנים ושוקי תוצרת מקומית.",
     mendoza_events_agenda_link_text: "הורד לוח אירועים מלא בפורמט iCal (.zip)",
-    mendoza_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    mendoza_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     mendoza_family_tips: "- שקלו לשכור רכב כדי לחקור את היקבים וההר הגבוה בקצב שלכם.\n- תמיד קחו מים וקרם הגנה, האקלים יבש ושמשי.\n- בחלק מהיקבים יש אזורי משחקים או פעילויות לילדים בזמן שהמבוגרים טועמים.\n- העיר מאוד מוצלת עם תעלות השקיה, מה שהופך אותה נעימה להליכה.\n- בהר הגבוה, הטמפרטורות יכולות לרדת משמעותית, גם בקיץ.",
     mendoza_budget_table: "| קונספט                      | מחיר משוער (USD) |\n|-------------------------------|:--------------------:|\n| לינה (לילה, משפחה)          | 60–160               |\n| אוכל (ליום, משפחה)          | 40–80                |\n| תחבורה מקומית (ליום)        | 5–20                 |\n| פעילויות וסיורים (ליום)     | 25–70                |\n| כניסות למוזיאונים/אטרקציות | 0–20                 |",
     mendoza_cultural_tips: "- תרבות היין היא מרכזית במנדוסה.\n- ה\"סייסטה\" היא מנהג מושרש מאוד, עם חנויות רבות שנסגרות בצהריים.\n- תושבי מנדוסה גאים מאוד במחוז שלהם ובייצור היין.\n- חמימות האנשים בולטת.",
@@ -643,13 +644,13 @@ export const translations: Translations = {
     malargue_coordinates: "- 35° 28' דרום 69° 35' מערב",
     malargue_events_agenda_text: "- **(יש לבדוק לוח אירועים מקומי)**: פסטיבל הצ'יבו הלאומי (ינואר).\n- **(יש לבדוק לוח אירועים מקומי)**: אירועים הקשורים לאסטרונומיה או גאולוגיה.",
     malargue_events_agenda_link_text: "הורד לוח אירועים מלא בפורמט iCal (.zip)",
-    malargue_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    malargue_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     malargue_family_tips: "- לחקר אטרקציות הטבע, כמעט הכרחי רכב פרטי או שכירת טיולים מאורגנים.\n- מערת המכשפות יכולה להיות מעט תובענית פיזית לילדים קטנים מאוד או לאנשים עם מוגבלות בניידות.\n- קחו הרבה מים ובגדים מתאימים לשינויי טמפרטורה פתאומיים, במיוחד אם מבקרים באזורי הר גבוה או מדבר.\n- קליטת סלולר עשויה להיות מוגבלת מחוץ לעיר.\n- כבדו את הנחיות המדריכים בשמורות הטבע.",
     malargue_budget_table: "| קונספט                      | מחיר משוער (USD) |\n|-------------------------------|:--------------------:|\n| לינה (לילה, משפחה)          | 40–100               |\n| אוכל (ליום, משפחה)          | 25–60                |\n| תחבורה מקומית (ליום)        | 5–15 (לא כולל רכב שכור) |\n| פעילויות וסיורים (ליום)     | 20–60 (לא כולל פאיוניה) |\n| כניסות למוזיאונים/אטרקציות | 0–15                 |",
     malargue_cultural_tips: "- מלרגואה היא אזור כפרי יותר עם זהות שדה חזקה.\n- חיי הלילה מוגבלים; הדגש הוא על הטבע והמנוחה.\n- הצ'יביטו על האש הוא מסורת קולינרית מושרשת מאוד וחובה מקומית.\n- האדיבות והכנסת האורחים של תושבי המקום הן תכונות בולטות.",
     malargue_map_link_text: "צפה במפה גדולה יותר של מלרגואה",
     malargue_map_link_url: "https://www.openstreetmap.org/#map=12/-35.478/-69.585",
-    
+
     jujuy_dates_duration: "- **שהייה**: 16/10 עד 20/10 (5 ימים)\n- **איך מגיעים**: טיסה ממנדוסה (עם עצירה) / אוטובוס למרחקים ארוכים.",
     jujuy_must_see: "- **קבראדה דה אומאואקה**: אתר מורשת עולמית, עם נופים כמו פאלטה דל פינטור במאימארה וסרו דה לוס סייטה קולורס בפורממרקה.\n- **פורממרקה**: כפר ציורי למרגלות סרו דה לוס סייטה קולורס.\n- **טילקרה**: עיר עם פוקארה (מבצר פרה-היספני) ומוזיאונים.\n- **אומאואקה**: עיר היסטורית עם אנדרטת העצמאות ומגדל הקבילדו.\n- **סלינאס גרנדס**: מדבר מלח עצום (משותף עם סלטה, נגיש מפורממרקה).\n- **גרונטה דל דיאבלו (טילקרה)**: תצורת סלע עם מפל.\n- **סן סלבדור דה חוחוי**: הבירה, עם העיר העתיקה ובית הממשלה.",
     jujuy_activities_recommended: "- סיורים בכפרי הקבראדה ובשווקי האומנות שלהם.\n- הליכות קלות בפורממרקה או טילקרה.\n- ביקור בפוקארה של טילקרה.\n- טיול לסלינאס גרנדס (קחו קרם הגנה ומשקפי שמש).\n- תצפית כוכבים בקבראדה (זיהום אור נמוך).\n- הנאה ממוזיקה פולקלורית וריקודים מקומיים.\n- טעימת אמפנדס חוחויאניות וטמאלס.",
@@ -658,13 +659,13 @@ export const translations: Translations = {
     jujuy_coordinates: "- סן סלבדור דה חוחוי: 24° 11' דרום 65° 18' מערב\n- פורממרקה: 23° 44' דרום 65° 30' מערב",
     jujuy_events_agenda_text: "- **(יש לבדוק לוח אירועים מקומי)**: קרנבל (פברואר/מרץ, צפוף מאוד).\n- **(יש לבדוק לוח אירועים מקומי)**: פסטיבלים פולקלוריים ודתיים.",
     jujuy_events_agenda_link_text: "הורד לוח אירועים מלא בפורמט iCal (.zip)",
-    jujuy_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    jujuy_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     jujuy_family_tips: "- הגובה יכול להשפיע על חלק מהמטיילים (סן סלבדור בגובה ~1200 מ', פורממרקה ~2300 מ', אומאואקה ~3000 מ', סלינאס גרנדס ~3500 מ'). שתו הרבה מים והלכו לאט בימים הראשונים.\n- קחו קרם הגנה, כובע ומשקפי שמש, קרינת השמש גבוהה.\n- התלבשו בשכבות, הטמפרטורות משתנות מאוד בין היום ללילה.\n- השכרת רכב מומלצת לטיול בקבראדה בחופשיות.\n- תמיד החזיקו כסף קטן, במיוחד בשווקים מקומיים.",
     jujuy_budget_table: "| קונספט                      | מחיר משוער (USD) |\n|-------------------------------|:--------------------:|\n| לינה (לילה, משפחה)          | 40–110               |\n| אוכל (ליום, משפחה)          | 25–65                |\n| תחבורה מקומית (ליום)        | 5–20                 |\n| פעילויות וסיורים (ליום)     | 15–50                |\n| כניסות למוזיאונים/אטרקציות | 0–10                 |",
     jujuy_cultural_tips: "- התרבות האנדינית נוכחת מאוד: כבוד לפצ'אמאמה (אמא אדמה), טקסים, מוזיקה (קנות, צ'רנגוס).\n- השפה הספרדית עם השפעת קצ'ואה נפוצה.\n- האומנות המקומית עשירה מאוד: טקסטיל מלאמה/אלפקה, קרמיקה, עבודות עץ.\n- האדיבות של האנשים היא תכונה בולטת.",
     jujuy_map_link_text: "צפה במפה גדולה יותר של חוחוי",
     jujuy_map_link_url: "https://www.openstreetmap.org/#map=10/-23.597/-65.405",
-    
+
     iguazu_dates_duration: "- **שהייה**: 20/10 עד 24/10 (5 ימים)\n- **איך מגיעים**: טיסה מחוחוי (עם עצירה בבואנוס איירס) / אוטובוס למרחקים ארוכים.",
     iguazu_must_see: "- **הפארק הלאומי איגואסו (הצד הארגנטינאי)**: עם גשרים מעל המפלים, גרון השטן והרכבת האקולוגית.\n- **הפארק הלאומי איגואסו (הצד הברזילאי)**: מציע נוף פנורמי מרשים של המפלים.\n- **נקודת שלושת הגבולות**: נקודת מפגש של ארגנטינה, ברזיל ופרגוואי.\n- **גוירה אוגה (מקלט לחיות בר)**: מרכז הצלה ושיקום של בעלי חיים.\n- **גן היונקי הדבש**: מקום קסום לצפייה ביונקי דבש מקרוב.\n- **אריפוקה**: מיזם תיירותי-תרבותי המעריך מחדש את יער מיסיונס.\n- **מוזיאון השעווה**: אטרקציה משפחתית.",
     iguazu_activities_recommended: "- הליכה בגשרים בצד הארגנטינאי והברזילאי של המפלים.\n- הרפתקה גדולה (שייט בסירת גומי מתחת למפלים) – מתאים לגילאים מתאימים וללא מגבלות בריאותיות.\n- שייט בשקיעה בנהר איגואסו.\n- ביקור בנקודת שלושת הגבולות בשקיעה.\n- סיור בחנות הדיוטי פרי (הצד הארגנטינאי).\n- ביקור בפארק הציפורים (הצד הברזילאי, אם חוצים את הגבול).\n- חקירת הפארק הלאומי במסלולים השונים שלו.",
@@ -673,7 +674,7 @@ export const translations: Translations = {
     iguazu_coordinates: "- פוארטו איגואסו: 25° 36' דרום 54° 34' מערב\n- מפלי איגואסו: 25° 40' דרום 54° 26' מערב",
     iguazu_events_agenda_text: "- **(יש לבדוק לוח אירועים מקומי)**: אירועים תרבותיים או פסטיבלים מקומיים.\n- **(יש לבדוק לוח אירועים מקומי)**: האטרקציה העיקרית היא המפלים והטבע.",
     iguazu_events_agenda_link_text: "הורד לוח אירועים מלא בפורמט iCal (.zip)",
-    iguazu_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    iguazu_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     iguazu_family_tips: "- קחו דוחה יתושים (חיוני), קרם הגנה, כובע ובגדים קלים.\n- נעלו נעליים נוחות ומונעות החלקה לגשרים.\n- בהרפתקה הגדולה, תירטבו לחלוטין; קחו בגדים להחלפה.\n- אם מתכננים לחצות לברזיל, בדקו את דרישות הוויזה והדרכון לכל בני המשפחה.\n- קופים וקואטים נפוצים בפארק, אל תאכילו אותם ואל תיגעו בהם.\n- מומלץ לשתות מים מינרליים.",
     iguazu_budget_table: "| קונספט                      | מחיר משוער (USD) |\n|-------------------------------|:--------------------:|\n| לינה (לילה, משפחה)          | 60–150               |\n| אוכל (ליום, משפחה)          | 30–75                |\n| תחבורה מקומית (ליום)        | 5–20                 |\n| פעילויות וסיורים (ליום)     | 30–80                |\n| כניסות למוזיאונים/אטרקציות | 25–40 (רק מפלים)   |",
     iguazu_cultural_tips: "- תרבות האזור מושפעת מאוד משלושת הגבולות (ארגנטינה, ברזיל, פרגוואי).\n- גוארני היא שפה רשמית-משותפת באזורים מסוימים, אם כי ספרדית היא הדומיננטית.\n- מנדיוקה היא מזון בסיסי בתזונה המקומית.\n- חמימות האקלים משתקפת בקצב החיים.",
@@ -688,7 +689,7 @@ export const translations: Translations = {
     corrientes_coordinates: "- 27° 28' דרום 58° 49' מערב",
     corrientes_events_agenda_text: "- **(יש לבדוק לוח אירועים מקומי)**: פסטיבל הצ'ממה הלאומי (ינואר).\n- **(יש לבדוק לוח אירועים מקומי)**: קרנבלים בקוריינטס (ינואר/פברואר).",
     corrientes_events_agenda_link_text: "הורד לוח אירועים מלא בפורמט iCal (.zip)",
-    corrientes_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    corrientes_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     corrientes_family_tips: "- העיר חמה ולחה; קחו בגדים קלים, כובע וקרם הגנה.\n- חיוני לקחת דוחה יתושים, במיוחד אם מתכננים להיות ליד הנהר.\n- תיהנו מהטיילת בשקיעה, זהו טיול פופולרי מאוד.\n- תושבי קוריינטס אדיבים ומכניסי אורחים מאוד.\n- שקלו טיול בסירה כדי לראות את העיר מהנהר.",
     corrientes_budget_table: "| קונספט                      | מחיר משוער (USD) |\n|-------------------------------|:--------------------:|\n| לינה (לילה, משפחה)          | 40–100               |\n| אוכל (ליום, משפחה)          | 25–60                |\n| תחבורה מקומית (ליום)        | 3–10                 |\n| פעילויות וסיורים (ליום)     | 10–40                |\n| כניסות למוזיאונים/אטרקציות | 0–10                 |",
     corrientes_cultural_tips: "- הצ'ממה הוא קצב המוזיקה והריקוד המובהק של המחוז.\n- גוארני היא שפה רשמית-משותפת והשפעתה מורגשת בניב המקומי.\n- האדיקות לבתולה מאיטטי חזקה מאוד.\n- טררה (מאטה קר) הוא משקה פופולרי מאוד, במיוחד בקיץ.",
@@ -703,13 +704,13 @@ export const translations: Translations = {
     ibera_coordinates: "- קולוניה קרלוס פלגריני: 28° 32' דרום 57° 11' מערב",
     ibera_events_agenda_text: "- **(יש לבדוק לוח אירועים מקומי)**: הדגש הוא על הטבע וחיות הבר.\n- **(יש לבדוק לוח אירועים מקומי)**: ייתכנו הרצאות או סדנאות על שימור.",
     ibera_events_agenda_link_text: "הורד לוח אירועים מלא בפורמט iCal (.zip)",
-    ibera_events_agenda_link_url: "/docs/agenda/ariflier1970@gmail.com.ical.zip",
+    ibera_events_agenda_link_url: "docs/agenda/ariflier1970@gmail.com.ical.zip",
     ibera_family_tips: "- **דוחה יתושים הוא קריטי לחלוטין.** קחו כמות גדולה.\n- קרם הגנה, כובע ובגדים עם שרוולים ארוכים להגנה מהשמש והיתושים.\n- משקפת לצפייה בציפורים ובעלי חיים.\n- הזמינו לינה וטיולים מראש, ההיצע מוגבל.\n- רוב הפעילויות הן באוויר הפתוח; היו מוכנים לתנאי מזג אוויר שונים.\n- אידיאלי לילדים המתעניינים בטבע ובבעלי חיים.",
     ibera_budget_table: "| קונספט                      | מחיר משוער (USD) |\n|-------------------------------|:--------------------:|\n| לינה (לילה, משפחה)          | 70–200+ (כולל טיולים/ארוחות) |\n| אוכל (ליום, משפחה)          | כלול בפונדק (בדרך כלל)   |\n| תחבורה מקומית (ליום)        | 0–10 (בתוך הכפר)        |\n| פעילויות וסיורים (ליום)     | 50–100+ (תלוי בטיולים)  |\n| כניסות למוזיאונים/אטרקציות | 0–10                 |",
     ibera_cultural_tips: "- תרבות הגוארני והכבוד לטבע חזקים מאוד.\n- קצב החיים רגוע ובמגע עם הטבע.\n- הכנסת האורחים של המקומיים בולטת.\n- לימוד כמה מילים בגוארני יכול להיות מהנה לילדים.",
     ibera_map_link_text: "צפה במפה גדולה יותר של אסטרוס דל איברה (קולוניה קרלוס פלגריני)",
     ibera_map_link_url: "https://www.openstreetmap.org/#map=13/-28.537/-57.140",
-    
+
     // Transport Leg Specific Keys (HE)
     transport_mean_bus: "אוטובוס",
     transport_time_4h: "4 שעות",
@@ -728,7 +729,7 @@ export const translations: Translations = {
     crucero_del_norte: "קרוסרו דל נורטה",
     crucerodelnorte_url: "https://www.crucerodelnorte.com.ar/",
     aguape_lodge_transfer: "אגואפה לודג' (דוגמה להסעה ממקום לינה)",
-    
+
     transport_price_ars_generic: "{price} ARS",
 
     // Itinerary Program Section (HE)
@@ -822,7 +823,7 @@ if (!translations.he['transport_time_6h']) translations.he['transport_time_6h'] 
 // For placeholder images if real ones are missing
 export const DEFAULT_CITY_IMAGE = 'https://picsum.photos/seed/argentina/600/400';
 
-export const POLYGON_API_KEY = process.env.REACT_APP_POLYGON_API_KEY || ""; 
+export const POLYGON_API_KEY = process.env.REACT_APP_POLYGON_API_KEY || "";
 export const GEMINI_API_KEY = process.env.API_KEY || "";
 // Ensure all city detail markdowns are present in translations.es and translations.he
 // Example for Mendoza (add others similarly if not already present)
