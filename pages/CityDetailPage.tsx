@@ -1,10 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { useAppContext } from '../App';
-import { CITIES, DEFAULT_CITY_IMAGE, AI_PROMPT_CONFIGS, LANGUAGES } from '../constants';
+import { useAppContext } from '../contexts/AppContext';
+import { CITIES, DEFAULT_CITY_IMAGE, AI_PROMPT_CONFIGS, LANGUAGES } from '../config/constants';
 import InteractiveMap from '../components/InteractiveMap';
-import { City, AIPromptContent, AIResponseType, Language } from '../types';
+import { City, AIPromptContent, AIResponseType, Language } from '../config/types';
 import { parseMarkdownLinks, parseMarkdownTable } from '../utils/markdownParser';
 import { askGemini } from '../services/apiService';
 
@@ -114,7 +114,6 @@ const CityDetailPage: React.FC = () => {
     const fullPrompt = constructFullPrompt(originalBasePromptKey, cityForPrompt, originalUserInput);
 
     if (!fullPrompt) {
-        // This case should ideally not happen if original prompt was valid
         setAiResponses(prev => ({ 
         ...prev, 
         [config.promptKeySuffix]: { 
@@ -127,10 +126,9 @@ const CityDetailPage: React.FC = () => {
     }
     
     setAiLoadingStates(prev => ({ ...prev, [config.promptKeySuffix]: true }));
-    // Keep old text while loading new translation
     
     try {
-      const translatedText = await askGemini(fullPrompt, language); // language is the current UI language
+      const translatedText = await askGemini(fullPrompt, language); 
       setAiResponses(prev => ({ 
         ...prev, 
         [config.promptKeySuffix]: { 
@@ -144,9 +142,8 @@ const CityDetailPage: React.FC = () => {
       setAiResponses(prev => ({ 
         ...prev, 
         [config.promptKeySuffix]: { 
-            ...existingResponse, // Revert to showing old text or show specific error
-            text: existingResponse.text + `\n\n(${t('iaError')} - Translation failed)`, // Append error to old text
-            // lang remains the old language, or we can decide to update it to current UI lang with error
+            ...existingResponse, 
+            text: existingResponse.text + `\n\n(${t('iaError')} - Translation failed)`, 
         } 
       }));
     } finally {
@@ -162,13 +159,15 @@ const CityDetailPage: React.FC = () => {
 
     let contentNode: React.ReactNode;
 
-    if (titleKeySuffix === 'must_see') {
+    const listStyleSections = ['must_see', 'activities_recommended', 'accommodation_examples'];
+
+    if (listStyleSections.includes(titleKeySuffix) && content.includes('- ')) {
       const listItems = content.split('\n').filter(item => item.trim().startsWith('- '));
       contentNode = (
         <ul className="list-disc list-inside space-y-1">
           {listItems.map((item, index) => (
             <li key={index} className={detailTextClasses}>
-              {parseMarkdownLinks(item.substring(2))}
+              {parseMarkdownLinks(item.substring(item.indexOf('- ') + 2))}
             </li>
           ))}
         </ul>
@@ -181,17 +180,46 @@ const CityDetailPage: React.FC = () => {
                               part.toLowerCase().includes(t('gastronomy_cafes_subtitle').toLowerCase().split(' ')[0]) ? 'gastronomy_cafes_subtitle' : '';
           if (subtitleKey) {
             acc.push(<h3 key={`sub-${index}`} className="text-xl font-semibold text-gray-800 mt-4 mb-2">{t(subtitleKey)}</h3>);
+          } else {
+             acc.push(<h3 key={`sub-unknown-${index}`} className="text-xl font-semibold text-gray-800 mt-4 mb-2">{part.trim()}</h3>);
           }
         } else if (part.trim().startsWith('|')) { 
           acc.push(<div key={`table-${index}`}>{parseMarkdownTable(part, (k) => t(k), language)}</div>);
         } else if (part.trim()) { 
-          acc.push(<p key={`text-${index}`} className={`${detailTextClasses} mb-3 whitespace-pre-line`}>{part}</p>);
+          const paragraphs = part.trim().split('\n').filter(p => p.trim());
+          paragraphs.forEach((paragraph, pIndex) => {
+            acc.push(
+              <p key={`text-${index}-p-${pIndex}`} className={`${detailTextClasses} mb-3 whitespace-pre-line`}>
+                {parseMarkdownLinks(paragraph)}
+              </p>
+            );
+          });
         }
         return acc;
       }, []);
+    } else if (titleKeySuffix === 'budget_table' && content.trim().startsWith('|')) {
+        contentNode = parseMarkdownTable(content, (k) => t(k), language);
     } else {
-      contentNode = <p className={`${detailTextClasses} whitespace-pre-line`}>{content}</p>;
+      const paragraphs = content.split('\n').filter(p => p.trim() !== '');
+      if (paragraphs.length > 0) {
+        contentNode = paragraphs.map((paragraph, idx) => (
+          <p key={idx} className={`${detailTextClasses} whitespace-pre-line`}>
+            {parseMarkdownLinks(paragraph)}
+          </p>
+        ));
+      } else if (content.trim()) {
+         contentNode = (
+          <p className={`${detailTextClasses} whitespace-pre-line`}>
+            {parseMarkdownLinks(content.trim())}
+          </p>
+        );
+      } else {
+        contentNode = null; 
+      }
     }
+
+    if (contentNode === null || (Array.isArray(contentNode) && contentNode.length === 0 && !(contentNode as any[]).some(n => n !== null))) return null;
+
 
     return (
       <section className={detailCardClasses}>
@@ -208,7 +236,7 @@ const CityDetailPage: React.FC = () => {
     const title = t(`section_title_${titleKeySuffix}`);
     const linkText = t(`${city.id}_${textKeySuffix}`);
     const linkUrl = t(`${city.id}_${urlKeySuffix}`);
-    const mainTextContentKey = `${city.id}_${titleKeySuffix.toLowerCase()}`; // e.g. buenosaires_events_agenda_text or buenosaires_city_map
+    const mainTextContentKey = `${city.id}_${titleKeySuffix.toLowerCase()}`;
     const mainTextContent = t(mainTextContentKey);
     
     const isMainTextValid = mainTextContent && mainTextContent !== mainTextContentKey;
@@ -228,7 +256,7 @@ const CityDetailPage: React.FC = () => {
           {title}
         </h2>
         {isMainTextValid && (
-             <p className={`${detailTextClasses} mb-4 whitespace-pre-line`}>{mainTextContent}</p>
+             <p className={`${detailTextClasses} mb-4 whitespace-pre-line`}>{parseMarkdownLinks(mainTextContent)}</p>
         )}
         {isLinkUrlValid && (
             <a
@@ -261,7 +289,7 @@ const CityDetailPage: React.FC = () => {
               className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-md mb-6"
               onError={handleImageError}
             />
-            <p className={`${detailTextClasses} text-lg whitespace-pre-line`}>{t(city.descriptionKey)}</p>
+            <div className={`${detailTextClasses} text-lg whitespace-pre-line`}>{parseMarkdownLinks(t(city.descriptionKey))}</div>
           </section>
 
           {renderSection('dates_duration', `${city.id}_dates_duration`, 'fa-calendar-alt')}
@@ -276,7 +304,6 @@ const CityDetailPage: React.FC = () => {
           {renderSection('budget_table', city.budgetKey, 'fa-wallet')}
           {renderLinkSection('city_map', 'map_link_text', 'map_link_url', 'fa-map')}
 
-          {/* AI Generator Sections */}
           {AI_PROMPT_CONFIGS.map(config => {
             const currentResponse = aiResponses[config.promptKeySuffix];
             return (
@@ -301,7 +328,7 @@ const CityDetailPage: React.FC = () => {
                   disabled={aiLoadingStates[config.promptKeySuffix]}
                   className="w-full sm:w-auto bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2.5 px-5 rounded-lg shadow-md transition-transform transform hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center mb-3"
                 >
-                  {aiLoadingStates[config.promptKeySuffix] && currentResponse?.lang === language ? ( // Show loading only if generating for current language
+                  {aiLoadingStates[config.promptKeySuffix] && currentResponse?.lang === language ? ( 
                     <><i className="fas fa-spinner fa-spin mr-2"></i> {t('generating')}</>
                   ) : (
                     <>{t(config.buttonKey)}</>
@@ -310,7 +337,7 @@ const CityDetailPage: React.FC = () => {
                 
                 {currentResponse && (
                   <div className="mt-5 p-4 bg-gray-50 rounded-lg shadow-inner whitespace-pre-line text-gray-700 border border-gray-200">
-                    {currentResponse.text}
+                    {parseMarkdownLinks(currentResponse.text)}
                     {currentResponse.lang !== language && !aiLoadingStates[config.promptKeySuffix] && (
                       <button
                         onClick={() => handleTranslateAiResponse(config, city)}
@@ -320,7 +347,7 @@ const CityDetailPage: React.FC = () => {
                         {t('ai_translate_button_text', { lang: LANGUAGES.find(l => l.code === language)?.name || language })}
                       </button>
                     )}
-                     {aiLoadingStates[config.promptKeySuffix] && currentResponse?.lang !== language && ( // Loading indicator for translation
+                     {aiLoadingStates[config.promptKeySuffix] && currentResponse?.lang !== language && ( 
                         <div className="mt-2 text-sm text-gray-500"><i className="fas fa-spinner fa-spin mr-1"></i> {t('generating')} {LANGUAGES.find(l=>l.code === language)?.name}...</div>
                     )}
                   </div>
