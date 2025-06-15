@@ -1,7 +1,6 @@
-
 {
-  "name": "Aventura Familiar de 30 Dias con aistudio",
-  "description": "Revisión completa de archivos realizada. La estructura y funcionalidad general de la aplicación son sólidas. Las carpetas de imágenes para las ciudades están listas para que el usuario agregue sus fotos. Próximos pasos pueden incluir la carga de imágenes específicas y ajustes finos si son necesarios.",
+  "name": "No borrar- Aventura Familiar de 30 Dias con aistudio",
+  "description": "Esta es una copia de seguridad, probar con github los cambios.\nAgregar imagenes de la computadora(agregar carpetas y archivos).\nGuardar este para hacer pruebas\n",
   "requestFramePermissions": [],
   "prompt": ""
 }
