@@ -1,32 +1,41 @@
 
-import React, { useState, useCallback, createContext, useContext, useEffect } from 'react';
-import { HashRouter, Routes, Route, Link } from 'react-router-dom';
-import { Language, Currency, AppContextType, TranslationSet } from './types';
-import { translations, LANGUAGES, CURRENCIES, CITIES } from './constants';
+import React, { useState, useCallback, useEffect } from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { AppContext } from './contexts/AppContext'; 
+import { Language, Currency, AppContextType, TranslationSet } from './config/types'; 
+import { translations, LANGUAGES, CURRENCIES } from './config/constants'; 
 import HomePage from './pages/HomePage';
 import CityDetailPage from './pages/CityDetailPage';
 import TopBar from './components/TopBar';
 import Footer from './components/Footer';
 
-const AppContext = createContext<AppContextType | undefined>(undefined);
-
-export const useAppContext = () => {
-  const context = useContext(AppContext);
-  if (!context) {
-    throw new Error('useAppContext must be used within an AppProvider');
-  }
-  return context;
-};
-
 const App: React.FC = () => {
-  const [language, setLanguage] = useState<Language>(Language.ES);
-  const [currency, setCurrency] = useState<Currency>(Currency.ARS);
+  const [language, setLanguageState] = useState<Language>(() => {
+    const savedLang = localStorage.getItem('appLanguage');
+    return (savedLang && Object.values(Language).includes(savedLang as Language)) ? savedLang as Language : Language.ES;
+  });
+  const [currency, setCurrencyState] = useState<Currency>(() => {
+    const savedCurrency = localStorage.getItem('appCurrency');
+    return (savedCurrency && Object.values(Currency).includes(savedCurrency as Currency)) ? savedCurrency as Currency : Currency.ARS;
+  });
 
   useEffect(() => {
-    // Set document direction based on language
     document.documentElement.dir = language === Language.HE ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
+    localStorage.setItem('appLanguage', language);
   }, [language]);
+
+  useEffect(() => {
+    localStorage.setItem('appCurrency', currency);
+  }, [currency]);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+  };
+
+  const setCurrency = (curr: Currency) => {
+    setCurrencyState(curr);
+  };
 
   const t = useCallback((key: string, replacements?: Record<string, string>): string => {
     const langSet = translations[language] as TranslationSet;
@@ -39,8 +48,16 @@ const App: React.FC = () => {
     return translatedString;
   }, [language]);
 
+  const appContextValue: AppContextType = {
+    language,
+    setLanguage,
+    currency,
+    setCurrency,
+    t,
+  };
+
   return (
-    <AppContext.Provider value={{ language, setLanguage, currency, setCurrency, t }}>
+    <AppContext.Provider value={appContextValue}>
       <HashRouter>
         <div className="flex flex-col min-h-screen bg-gradient-to-br from-sky-100 via-indigo-50 to-purple-100">
           <TopBar />
