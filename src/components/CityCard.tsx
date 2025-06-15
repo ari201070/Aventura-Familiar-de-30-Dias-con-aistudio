@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { City } from '../types';
-import { useAppContext } from '../App';
-import { DEFAULT_CITY_IMAGE } from '../constants';
+import { City } from '../config/types';
+import { useAppContext } from '../contexts/AppContext';
+import { DEFAULT_CITY_IMAGE } from '../config/constants';
 
 interface CityCardProps {
   city: City;
