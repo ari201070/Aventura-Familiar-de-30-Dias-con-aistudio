@@ -1,11 +1,12 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
-import { useAppContext } from '../App';
+import { useAppContext } from '../contexts/AppContext';
 import CityCard from '../components/CityCard';
 import InteractiveMap from '../components/InteractiveMap';
-import { CITIES, TRANSPORT_DATA } from '../constants';
-import { PackingItem, Currency, TransportLeg } from '../types';
-import { askGemini, convertCurrency as fetchConvertedCurrency, getCachedExchangeRate } from '../services/apiService'; // Renamed to avoid conflict
-import { v4 as uuidv4 } from 'uuid'; // For unique IDs
+import { CITIES, TRANSPORT_DATA } from '../config/constants';
+import { PackingItem, Currency, TransportLeg } from '../config/types';
+import { askGemini, convertCurrency as fetchConvertedCurrency, getCachedExchangeRate } from '../services/apiService'; 
+import { v4 as uuidv4 } from 'uuid'; 
 
 const HomePage: React.FC = () => {
   const { t, language, currency: globalCurrency } = useAppContext();
@@ -28,7 +29,7 @@ const HomePage: React.FC = () => {
       id: uuidv4(),
       text: newItemText.trim(),
       type: newItemType,
-      originalLang: language, // Store original language
+      originalLang: language, 
     };
     setPackingItems(prev => [...prev, newItem]);
     setNewItemText('');
@@ -104,14 +105,13 @@ const HomePage: React.FC = () => {
     }
     const rate = transportRates[globalCurrency];
     if (rate !== null && rate !== undefined) {
-        // Use a generic key for converted prices as well, or specify currency in key if needed
         return `${(basePriceARS * rate).toLocaleString(language === 'he' ? 'he-IL' : 'es-AR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${globalCurrency}`;
     }
     return t('loading');
   };
 
 
-  const sectionTitleClasses = "text-3xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-indigo-500 flex items-center";
+  const sectionTitleClasses = "text-3xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-indigo-500";
   const cardClasses = "bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300";
 
   return (
@@ -132,14 +132,14 @@ const HomePage: React.FC = () => {
 
       {/* Interactive Map */}
       <section className={cardClasses}>
-        <h2 className={sectionTitleClasses}><i className="fas fa-map-marked-alt mr-3 text-indigo-600"></i>{t('mapaInteractivoTitulo')}</h2>
+        <h2 className={`${sectionTitleClasses} flex items-center`}><i className="fas fa-map-marked-alt mr-3 text-indigo-600"></i>{t('mapaInteractivoTitulo')}</h2>
         <p className="text-gray-600 mb-6">{t('mapaInteractivoBienvenida')}</p>
         <InteractiveMap cities={CITIES} />
       </section>
       
       {/* Transport Table */}
       <section className={cardClasses}>
-        <h2 className={sectionTitleClasses}><i className="fas fa-bus mr-3 text-indigo-600"></i>{t('transporte')}</h2>
+        <h2 className={`${sectionTitleClasses} flex items-center`}><i className="fas fa-bus mr-3 text-indigo-600"></i>{t('transporte')}</h2>
         <div className="overflow-x-auto rounded-lg shadow">
           <table className="min-w-full">
             <thead className="bg-indigo-100">
@@ -172,7 +172,7 @@ const HomePage: React.FC = () => {
 
       {/* Itinerary Program Section */}
       <section className={cardClasses}>
-        <h2 className={sectionTitleClasses}><i className="fas fa-clipboard-list mr-3 text-indigo-600"></i>{t('itinerary_program_title')}</h2>
+        <h2 className={`${sectionTitleClasses} flex items-center`}><i className="fas fa-clipboard-list mr-3 text-indigo-600"></i>{t('itinerary_program_title')}</h2>
         
         <div className="mb-8 p-4 bg-gray-50 rounded-lg">
             <h3 className="text-xl font-semibold text-indigo-700 mb-3">{t('itinerary_program_current_plan_title')}</h3>
@@ -203,7 +203,7 @@ const HomePage: React.FC = () => {
 
       {/* Packing List */}
       <section className={cardClasses}>
-        <h2 className={sectionTitleClasses}><i className="fas fa-suitcase-rolling mr-3 text-indigo-600"></i>{t('packing_title')}</h2>
+        <h2 className={`${sectionTitleClasses} flex items-center`}><i className="fas fa-suitcase-rolling mr-3 text-indigo-600"></i>{t('packing_title')}</h2>
         <div className="flex flex-col sm:flex-row gap-4 mb-6 items-center">
           <input
             type="text"
@@ -259,7 +259,7 @@ const HomePage: React.FC = () => {
 
       {/* AI Consultation */}
       <section className={cardClasses}>
-        <h2 className={sectionTitleClasses}><i className="fas fa-robot mr-3 text-indigo-600"></i>{t('iaTitulo')}</h2>
+        <h2 className={`${sectionTitleClasses} flex items-center`}><i className="fas fa-robot mr-3 text-indigo-600"></i>{t('iaTitulo')}</h2>
         <textarea
           value={aiQuestion}
           onChange={(e) => setAiQuestion(e.target.value)}
@@ -284,7 +284,7 @@ const HomePage: React.FC = () => {
 
       {/* Currency Converter */}
       <section className={cardClasses}>
-        <h2 className={sectionTitleClasses}><i className="fas fa-coins mr-3 text-indigo-600"></i>{t('conversorTitulo')}</h2>
+        <h2 className={`${sectionTitleClasses} flex items-center`}><i className="fas fa-coins mr-3 text-indigo-600"></i>{t('conversorTitulo')}</h2>
         <form onSubmit={handleCurrencyConversion} className="space-y-4 sm:space-y-0 sm:flex sm:items-end sm:gap-4">
           <div className="flex-grow">
             <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-1">{t('montoPlaceholder')}</label>
