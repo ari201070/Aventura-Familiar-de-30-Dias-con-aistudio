@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Language } from '../config/types'; 
+import { Language } from '../types'; // Assuming types.ts is in the parent directory or accessible
 
 // Parses simple Markdown links like [text](url)
 export const parseMarkdownLinks = (text: string): React.ReactNode[] => {
