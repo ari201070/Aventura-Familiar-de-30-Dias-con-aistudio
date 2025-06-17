@@ -1,71 +1,83 @@
-// js/i18n.js - Traducción dinámica y multilenguaje centralizada para todo el proyecto
+// js/i18n.js
 
-const LANG_KEY = "idiomaSeleccionado";
-const DEFAULT_LANG = "es";
-let textos = {};
-let idiomaActual = DEFAULT_LANG;
+const SUPPORTED_LANGUAGES = ['es', 'he'];
+const DEFAULT_LANGUAGE = 'es';
 
-// Obtener idioma guardado o predeterminado
-function obtenerIdiomaActual() {
-  return localStorage.getItem(LANG_KEY) || DEFAULT_LANG;
+let translations = {};
+let currentLang = DEFAULT_LANGUAGE;
+
+// Carga los archivos de traducción locales (MCP: primero intenta localStorage, si no fetch local)
+async function loadTranslations(lang) {
+  if (localStorage.getItem(`translations_${lang}`)) {
+    translations[lang] = JSON.parse(localStorage.getItem(`translations_${lang}`));
+    return;
+  }
+  try {
+    const response = await fetch(`locales/${lang}.json`);
+    const data = await response.json();
+    translations[lang] = data;
+    localStorage.setItem(`translations_${lang}`, JSON.stringify(data));
+  } catch (e) {
+    console.error(`No se pudo cargar la traducción para ${lang}:`, e);
+    translations[lang] = {};
+  }
 }
 
-// Guardar idioma elegido
-function guardarIdioma(lang) {
-  localStorage.setItem(LANG_KEY, lang);
-}
-
-// Cargar archivo de textos y traducir la página
-function cargarIdioma(lang, callback) {
-  fetch(`../locales/${lang}.json`)
-    .then(res => res.json())
-    .then(data => {
-      textos = data;
-      idiomaActual = lang;
-      traducirPagina();
-      if (callback) callback();
-    })
-    .catch(() => {
-      // Fallback a español si falla la carga
-      if (lang !== "es") cargarIdioma("es", callback);
-    });
-}
-
-// Traducir los textos marcados en la página
-function traducirPagina() {
-  document.querySelectorAll("[data-key]").forEach(el => {
-    const key = el.getAttribute("data-key");
-    if (textos[key]) {
-      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
-        el.placeholder = textos[key];
+// Aplica traducción a todos los elementos con data-key
+function applyTranslations(lang) {
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (translations[lang] && translations[lang][key]) {
+      if (el.placeholder !== undefined) {
+        el.placeholder = translations[lang][key];
       } else {
-        el.innerText = textos[key];
+        el.textContent = translations[lang][key];
       }
     }
   });
-  // Actualiza el selector visualmente
-  document.querySelectorAll(".btn-lang").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.lang === idiomaActual);
-  });
-  document.body.dir = idiomaActual === "he" ? "rtl" : "ltr";
-  document.documentElement.lang = idiomaActual;
+
+  // Soporte RTL para hebreo
+  if (lang === 'he') {
+    document.body.setAttribute('dir', 'rtl');
+    document.body.classList.add('rtl');
+  } else {
+    document.body.setAttribute('dir', 'ltr');
+    document.body.classList.remove('rtl');
+  }
 }
 
-// Cambiar idioma desde el selector
-function translatePage(lang) {
-  guardarIdioma(lang);
-  cargarIdioma(lang);
+// Cambia el idioma globalmente y lo guarda en localStorage
+async function setLanguage(lang) {
+  if (!SUPPORTED_LANGUAGES.includes(lang)) lang = DEFAULT_LANGUAGE;
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  if (!translations[lang]) await loadTranslations(lang);
+  applyTranslations(lang);
+  // Notifica a otros módulos si es necesario
+  if (window.onLanguageChange) window.onLanguageChange(lang);
 }
 
-// Inicialización automática al abrir la página
-document.addEventListener("DOMContentLoaded", () => {
-  const lang = obtenerIdiomaActual();
-  cargarIdioma(lang);
+// Detecta idioma al cargar
+async function initI18n() {
+  let lang = localStorage.getItem('lang') || DEFAULT_LANGUAGE;
+  if (!SUPPORTED_LANGUAGES.includes(lang)) lang = DEFAULT_LANGUAGE;
+  await loadTranslations(lang);
+  applyTranslations(lang);
 
-  // Listeners para los botones de idioma
-  document.querySelectorAll(".btn-lang").forEach(btn => {
-    btn.addEventListener("click", function() {
-      translatePage(btn.dataset.lang);
-    });
+  // Botones de idioma
+  SUPPORTED_LANGUAGES.forEach(code => {
+    const btn = document.getElementById(`btn-${code}`);
+    if (btn) {
+      btn.classList.toggle('active', code === lang);
+      btn.onclick = () => setLanguage(code);
+    }
   });
-});
+}
+
+// Exponer funciones globalmente si es necesario
+window.setLanguage = setLanguage;
+window.getCurrentLanguage = () => currentLang;
+window.initI18n = initI18n;
+
+// Inicializar al cargar la página
+document.addEventListener('DOMContentLoaded', initI18n);

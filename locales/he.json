@@ -1,110 +1,102 @@
 {
-  "welcome.title": "ברוכים הבאים למסע שלכם בארגנטינה",
-  "currencyConverter.title": " ממיר מטבע מודרני",
-  "convert": "להמיר",
-  "packingList.title": "רשימת מזוודה",
-  "addItem": "הוסף פריט",
-  "aiQuery.title": "שאלה ל-IA",
-  "backToItinerary": "⬅ חזור למסלול",
-  "exploreDetails": "גלה עוד פרטים",
-  "transport": {
-    "from": "מ",
-    "to": "אל",
-    "company": "חברה"
-  },
-  "rosario": {
-    "title": "רוסאריו",
-    "introduction": {
-      "title": "הקדמה",
-      "text": "רוסאריו היא עיר דינמית על חוף נהר הפרנה, ידועה בהיסטוריה, תרבות וחיי לילה. מומלצת למשפחות עם ילדים ומבוגרים."
-    },
-    "activities": {
-      "title": "פעילויות מומלצות",
-      "1": "ביקור במנצהל תג התערוכה",
-      "2": "הליכה לאורך הנהר",
-      "3": "סיור בפארק העצמאות",
-      "4": "ביקור במוזיאון האמנות העכשווית (MACRO)"
-    },
-    "food": {
-      "title": "אכילה",
-      "description": "רוסאריו מציעה אפשרויות כמו מסעדות משפחתיות, סטייקים טיפוסיים וקרמיות ביתיות.",
-      "1": "רוק אנד פלר (בדקו אם אין גלוטן)",
-      "2": "קרמיות מקומיות",
-      "3": "בתי פיצה משפחתיים"
-    },
-    "accommodation": {
-      "title": "אכסון מומלץ",
-      "text": "דירות מרכזיות או קרוב לנהר (פישינצ'ה). מומלץ:",
-      "1": "מלון NH Collection Rosario",
-      "2": "דירות באזור פישינצ'ה"
-    },
-    "agenda": {
-      "title": "לוח אירועים",
-      "1": "שוק סן מיגל (בשישי)",
-      "2": "חגיגת הביילה הלאומית (אפריל)",
-      "3": "תערוכת מוצרים אזוריים (ספטמבר)"
-    },
-    "transport": {
-      "title": "תחבורה",
-      "text": "רוסאריו מציעה תחבורה ציבורית נגישה וטקסיס זולים. מומלץ:",
-      "1": "רכבת מטרופולינית (חיבור לנמל התעופה)",
-      "2": "אפליקציות נסיעות (אויבר, דידי)"
-    }
-  },
-  "buenosaires": {
-    "title": "בונס איירס",
-    "description": " столית תרבותית עם גנים ומוזיאונים.",
-    "introduction": {
-      "text": "בונס איירס היא בירת ארגנטינה, ידועה באדריכלות אירופאית, חיי תרבות ומטבח."
-    }
-  },
-  "bariloche": {
-    "title": "סן קרלוס דה בריילושה",
-    "description": "הרפתקה באנדים הפתגוניים.",
-    "introduction": {
-      "text": "בריילושה היא יעד אידיאלי לאוהבי טבע, עם אגמים, הרים ופעילויות באוויר הפתוח."
-    }
-  },
-  "mendoza": {
-    "title": "מנדוסה",
-    "description": "מסלול היין וההרים.",
-    "introduction": {
-      "text": "מנדוסה מפורסמת בכריית היין שלה, יינות והנוף האנדי."
-    }
-  },
-  "malargue": {
-    "title": "מלרגה",
-    "description": "הרפתקה בהר האנדים.",
-    "introduction": {
-      "text": "מלרגה מציעה נושאים מדבריים ופעילויות הרפתקה בהר."
-    }
-  },
-  "jujuy": {
-    "title": "ג'וג'וי",
-    "description": "צבעים של נחלות המוהומוקה.",
-    "introduction": {
-      "text": "ג'וג'וי ידועה בנושאים המגוונים שלה ותרבות האנדית."
-    }
-  },
-  "iguazu": {
-    "title": "פורטו איגואזו",
-    "description": "קטארקטים וטבע מרשימים.",
-    "introduction": {
-      "text": "איגואזו מפורסם בקטארקטים שלו ויער הגשם הטרופי."
-    }
-  },
-  "corrientes": {
-    "title": "קורינטס",
-    "description": "תרבות צ'ממרית והומדלים.",
-    "introduction": {
-      "text": "קורינטס משלבת מסורות תרבותיות עם נושאים של נהרות והומדלים."
-    }
-  },
-  "ibera": {
-    "title": "אסטרוס דל איברה",
-    "description": "שמורות טבע וחיות ייחודיות.",
-    "introduction": {
-      "text": "איברה היא גן עדן טבעי עם חיות ייחודיות ופעילויות אקוטוריסטיקה."
-    }
-  }
+  "tituloPrincipal": "מסלול משפחתי בן 30 יום בארגנטינה",
+  "bienvenidaPrincipal": "ברוכים הבאים! לחצו על כל עיר למידע, מפות והמלצות.",
+  "explore_btn": "לפרטים נוספים",
+  "volver_btn": "⬅ חזרה למסלול",
+  "idioma": "שפה:",
+  "moneda": "מטבע:",
+  "ARS": "ARS",
+  "USD": "USD",
+  "ILS": "ILS",
+  "EUR": "EUR",
+  "ES": "ES",
+  "HE": "HE",
+  "transporte": "תחבורה בין ערים",
+  "desde": "מ",
+  "hasta": "עד",
+  "medio": "אמצעי",
+  "tiempo": "משך",
+  "precio": "מחיר משוער",
+  "compania": "חברה",
+  "mapaInteractivoTitulo": "מפת המסלול המשפחתי",
+  "mapaInteractivoBienvenida": "סיירו במסלול המשפחתי בארגנטינה. לחצו על כל עיר לפרטים.",
+  "atraccionesDestacadas": "אטרקציות בולטות",
+  "packing_title": "רשימת ציוד",
+  "packing_add": "הוסף",
+  "packing_essential": "חיוני",
+  "packing_optional": "רשות",
+  "packing_placeholder": "מה עוד להביא?",
+  "packing_borrar": "מחק",
+  "packing_vacio": "אין פריטים ברשימה זו.",
+  "iaTitulo": "שאל את ה-AI",
+  "iaPlaceholder": "שאל שאלה על המסע...",
+  "consultarBtn": "התייעץ",
+  "iaEsperando": "שואל את ה-AI...",
+  "iaError": "לא ניתן לקבל תשובה. נסה שוב.",
+  "iaVacio": "אנא הזן שאלה.",
+  "conversorTitulo": "ממיר מטבע",
+  "convertirBtn": "המר",
+  "conversor_resultado": "תוצאה",
+  "conversor_error": "לא ניתן לקבל שער חליפין. משתמש בערך שמור.",
+  "conversor_monto_invalido": "הזן סכום תקין.",
+  "ciudades": "ערים",
+  "buenosaires_title": "בואנוס איירס",
+  "buenosaires_desc": "עיר בירה קוסמופוליטית, אידיאלית למשפחות.",
+  "rosario_title": "רוסאריו",
+  "rosario_desc": "עיר על הנהר עם היסטוריה ופארקים.",
+  "bariloche_title": "ברילוצ'ה",
+  "bariloche_desc": "הרים, אגמים והרפתקאות בפטגוניה.",
+  "mendoza_title": "מנדוסה",
+  "mendoza_desc": "ארץ השמש והיין המשובח.",
+  "malargue_title": "מלארגואה",
+  "malargue_desc": "טבע ומדע בדרום מנדוסה.",
+  "jujuy_title": "חוחוי",
+  "jujuy_desc": "צבעים, תרבות ונופים ייחודיים.",
+  "iguazu_title": "איגואסו",
+  "iguazu_desc": "המפלים המרשימים בעולם.",
+  "corrientes_title": "קוריינטס",
+  "corrientes_desc": "מסורת, נהר וקרנבל.",
+  "ibera_title": "איברה",
+  "ibera_desc": "ביצות וחיות בר בטבע.",
+  "introduccion": "הקדמה",
+  "actividades_recomendadas": "פעילויות מומלצות",
+  "gastronomia": "גסטרונומיה",
+  "alojamiento": "לינה",
+  "agenda_eventos": "לוח אירועים",
+  "atracciones": "אטרקציות",
+  "presupuesto_orientativo": "תקציב משוער",
+  "consejos_familias": "טיפים למשפחות",
+  "proximamente": "בקרוב",
+  "cargando": "טוען...",
+  "error_cargar_ciudad": "שגיאה בטעינת נתוני העיר.",
+  "no_eventos": "אין אירועים לתאריכים אלו.",
+  "no_actividades": "אין פעילויות זמינות.",
+  "selecciona_idioma": "בחר שפה",
+  "selecciona_moneda": "בחר מטבע",
+  "guardar": "שמור",
+  "cancelar": "ביטול",
+  "editar": "ערוך",
+  "eliminar": "מחק",
+  "agregar": "הוסף",
+  "si": "כן",
+  "no": "לא",
+  "cerrar": "סגור",
+  "aceptar": "אישור",
+  "familia": "משפחה",
+  "dias": "ימים",
+  "personas": "אנשים",
+  "total": "סה\"כ",
+  "detalle": "פרטים",
+  "ver_mas": "הצג עוד",
+  "ver_menos": "הצג פחות",
+  "evento": "אירוע",
+  "fecha": "תאריך",
+  "hora": "שעה",
+  "lugar": "מקום",
+  "descripcion": "תיאור",
+  "precio": "מחיר",
+  "compra_entradas": "רכישת כרטיסים",
+  "volver": "חזור",
+  "volver_al_inicio": "חזור להתחלה",
+  "volver_al_itinerario": "⬅ חזרה למסלול"
 }

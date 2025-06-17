@@ -1,110 +1,102 @@
 {
-  "welcome.title": "Bienvenido a tu viaje por Argentina",
-  "currencyConverter.title": "Conversor de moneda",
-  "convert": "Convertir",
-  "packingList.title": "Lista de equipaje",
-  "addItem": "Agregar",
-  "aiQuery.title": "Consulta a IA",
-  "backToItinerary": "⬅ Volver al itinerario",
-  "exploreDetails": "Explorar más detalles",
-  "transport": {
-    "from": "Origen",
-    "to": "Destino",
-    "company": "Compañía"
-  },
-  "rosario": {
-    "title": "Rosario",
-    "introduction": {
-      "title": "Introducción",
-      "text": "Rosario es una ciudad vibrante en la costa del Río Paraná, conocida por su historia, cultura y vida nocturna. Ideal para familias con niños y adultos mayores."
-    },
-    "activities": {
-      "title": "Actividades recomendadas",
-      "1": "Visitar el Monumento a la Bandera",
-      "2": "Pasear por la Costanera Central",
-      "3": "Explorar el Parque de la Independencia",
-      "4": "Visitar el Museo de Arte Contemporáneo (MACRO)"
-    },
-    "food": {
-      "title": "Gastronomía",
-      "description": "Rosario ofrece opciones como restaurantes familiares, parrillas tradicionales y heladerías artesanales.",
-      "1": "Rock&Fellers (consultar Sin TACC)",
-      "2": "Heladerías locales",
-      "3": "Pizzerías familiares"
-    },
-    "accommodation": {
-      "title": "Alojamiento sugerido",
-      "text": "Apartamentos céntricos o cerca del río (Pichincha). Recomendamos:",
-      "1": "Hotel NH Collection Rosario",
-      "2": "Departamentos en zona Pichincha"
-    },
-    "agenda": {
-      "title": "Agenda de eventos",
-      "1": "Mercado de San Miguel (domingos)",
-      "2": "Fiesta Nacional de la Biela (abril)",
-      "3": "Feria de Productos Regionales (septiembre)"
-    },
-    "transport": {
-      "title": "Transporte",
-      "text": "Rosario cuenta con transporte público accesible y taxis económicos. Recomendamos:",
-      "1": "Tren metropolitano (conexión con aeropuerto)",
-      "2": "Apps de viaje (Uber, Didi)"
-    }
-  },
-  "buenosaires": {
-    "title": "Buenos Aires",
-    "description": "Capital cultural con parques y museos.",
-    "introduction": {
-      "text": "Buenos Aires es la capital de Argentina, conocida por su arquitectura europea, vida cultural y gastronomía."
-    }
-  },
-  "bariloche": {
-    "title": "San Carlos de Bariloche",
-    "description": "Aventura en los Andes patagónicos.",
-    "introduction": {
-      "text": "Bariloche es un destino ideal para amantes de la naturaleza, con lagos, montañas y actividades al aire libre."
-    }
-  },
-  "mendoza": {
-    "title": "Mendoza",
-    "description": "Ruta del vino y montañas.",
-    "introduction": {
-      "text": "Mendoza es famosa por sus viñedos, vinos y paisajes andinos."
-    }
-  },
-  "malargue": {
-    "title": "Malargüe",
-    "description": "Aventura en la cordillera de los Andes.",
-    "introduction": {
-      "text": "Malargüe ofrece paisajes desérticos y actividades de aventura en la montaña."
-    }
-  },
-  "jujuy": {
-    "title": "Jujuy",
-    "description": "Colores de la Quebrada de Humahuaca.",
-    "introduction": {
-      "text": "Jujuy es conocida por sus paisajes multicolores y cultura andina."
-    }
-  },
-  "iguazu": {
-    "title": "Puerto Iguazú",
-    "description": "Cataratas y naturaleza imponente.",
-    "introduction": {
-      "text": "Iguazú es famoso por sus cataratas y selva tropical."
-    }
-  },
-  "corrientes": {
-    "title": "Corrientes",
-    "description": "Cultura chamamecera y humedales.",
-    "introduction": {
-      "text": "Corrientes combina tradiciones culturales con paisajes de ríos y humedales."
-    }
-  },
-  "ibera": {
-    "title": "Esteros del Iberá",
-    "description": "Reservas naturales y fauna única.",
-    "introduction": {
-      "text": "Iberá es un paraíso natural con fauna única y actividades de ecoturismo."
-    }
-  }
+  "tituloPrincipal": "Itinerario Familiar por Argentina",
+  "bienvenidaPrincipal": "¡Bienvenidos! Haz clic en cada ciudad para ver información, mapas y recomendaciones.",
+  "explore_btn": "Explorar más detalles",
+  "volver_btn": "⬅ Volver al itinerario",
+  "idioma": "Idioma:",
+  "moneda": "Moneda:",
+  "ARS": "ARS",
+  "USD": "USD",
+  "ILS": "ILS",
+  "EUR": "EUR",
+  "ES": "ES",
+  "HE": "HE",
+  "transporte": "Transporte entre ciudades",
+  "desde": "Desde",
+  "hasta": "Hasta",
+  "medio": "Medio",
+  "tiempo": "Tiempo",
+  "precio": "Precio aprox.",
+  "compania": "Compañía",
+  "mapaInteractivoTitulo": "Mapa Interactivo del Viaje Familiar",
+  "mapaInteractivoBienvenida": "Recorre el itinerario familiar por Argentina. Haz clic en cada ciudad para detalles.",
+  "atraccionesDestacadas": "Atracciones destacadas",
+  "packing_title": "Lista de equipaje",
+  "packing_add": "Agregar",
+  "packing_essential": "Esenciales",
+  "packing_optional": "Opcionales",
+  "packing_placeholder": "¿Qué más llevás?",
+  "packing_borrar": "Borrar",
+  "packing_vacio": "No hay ítems en esta lista.",
+  "iaTitulo": "Consulta a IA",
+  "iaPlaceholder": "Haz tu pregunta sobre el viaje...",
+  "consultarBtn": "Consultar",
+  "iaEsperando": "Consultando a la IA...",
+  "iaError": "No se pudo obtener respuesta. Intenta de nuevo.",
+  "iaVacio": "Por favor, ingresa una pregunta.",
+  "conversorTitulo": "Conversor de moneda",
+  "convertirBtn": "Convertir",
+  "conversor_resultado": "Resultado",
+  "conversor_error": "No se pudo obtener la tasa de cambio. Usando valor guardado.",
+  "conversor_monto_invalido": "Ingresa un monto válido.",
+  "ciudades": "Ciudades",
+  "buenosaires_title": "Buenos Aires",
+  "buenosaires_desc": "Capital cosmopolita, ideal para familias.",
+  "rosario_title": "Rosario",
+  "rosario_desc": "Ciudad ribereña con historia y parques.",
+  "bariloche_title": "Bariloche",
+  "bariloche_desc": "Montañas, lagos y aventura en la Patagonia.",
+  "mendoza_title": "Mendoza",
+  "mendoza_desc": "Tierra del sol y del buen vino.",
+  "malargue_title": "Malargüe",
+  "malargue_desc": "Naturaleza y ciencia en el sur mendocino.",
+  "jujuy_title": "Jujuy",
+  "jujuy_desc": "Colores, cultura y paisajes únicos.",
+  "iguazu_title": "Iguazú",
+  "iguazu_desc": "Las cataratas más impresionantes del mundo.",
+  "corrientes_title": "Corrientes",
+  "corrientes_desc": "Tradición, río y carnaval.",
+  "ibera_title": "Iberá",
+  "ibera_desc": "Esteros y fauna en estado puro.",
+  "introduccion": "Introducción",
+  "actividades_recomendadas": "Actividades recomendadas",
+  "gastronomia": "Gastronomía",
+  "alojamiento": "Alojamiento",
+  "agenda_eventos": "Agenda de eventos",
+  "atracciones": "Atracciones",
+  "presupuesto_orientativo": "Presupuesto orientativo",
+  "consejos_familias": "Consejos para familias",
+  "proximamente": "Próximamente",
+  "cargando": "Cargando...",
+  "error_cargar_ciudad": "Error al cargar datos de la ciudad.",
+  "no_eventos": "No hay eventos para estas fechas.",
+  "no_actividades": "No hay actividades disponibles.",
+  "selecciona_idioma": "Selecciona un idioma",
+  "selecciona_moneda": "Selecciona una moneda",
+  "guardar": "Guardar",
+  "cancelar": "Cancelar",
+  "editar": "Editar",
+  "eliminar": "Eliminar",
+  "agregar": "Agregar",
+  "si": "Sí",
+  "no": "No",
+  "cerrar": "Cerrar",
+  "aceptar": "Aceptar",
+  "familia": "Familia",
+  "dias": "días",
+  "personas": "personas",
+  "total": "Total",
+  "detalle": "Detalle",
+  "ver_mas": "Ver más",
+  "ver_menos": "Ver menos",
+  "evento": "Evento",
+  "fecha": "Fecha",
+  "hora": "Hora",
+  "lugar": "Lugar",
+  "descripcion": "Descripción",
+  "precio": "Precio",
+  "compra_entradas": "Compra de entradas",
+  "volver": "Volver",
+  "volver_al_inicio": "Volver al inicio",
+  "volver_al_itinerario": "⬅ Volver al itinerario"
 }
