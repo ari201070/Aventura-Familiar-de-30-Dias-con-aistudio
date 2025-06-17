@@ -2,151 +2,150 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-key="tituloPrincipal">Itinerario Familiar por Argentina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+  <!-- Leaflet CSS para el mapa -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 </head>
 <body>
-  <!-- Barra superior: selector de idioma y moneda -->
+  <!-- Barra superior de idioma y moneda -->
   <div class="top-bar">
-    <span data-key="idioma">Idioma:</span>
-    <button class="btn-lang" data-lang="es" id="btn-es">Español</button>
-    <button class="btn-lang" data-lang="he" id="btn-he">עברית</button>
-    <span data-key="moneda">Moneda:</span>
-    <button class="btn-currency" data-currency="ARS" id="btn-ars">ARS</button>
-    <button class="btn-currency" data-currency="USD" id="btn-usd">USD</button>
-    <button class="btn-currency" data-currency="ILS" id="btn-ils">ILS</button>
-    <button class="btn-currency" data-currency="EUR" id="btn-eur">EUR</button>
+    <button id="btn-es" class="btn-lang active">ES</button>
+    <button id="btn-he" class="btn-lang">HE</button>
+    <button class="btn-currency" data-currency="ARS">ARS</button>
+    <button class="btn-currency" data-currency="USD">USD</button>
+    <button class="btn-currency" data-currency="EUR">EUR</button>
+    <button class="btn-currency" data-currency="ILS">ILS</button>
   </div>
 
   <div class="main-container">
     <h1 data-key="tituloPrincipal">Itinerario Familiar por Argentina</h1>
-    <p data-key="bienvenidaPrincipal">¡Bienvenidos! Haz clic en cada ciudad para ver información, mapas y recomendaciones.</p>
+    <p data-key="bienvenidaPrincipal">
+      ¡Bienvenidos! Haz clic en cada ciudad para ver información, mapas y recomendaciones.
+    </p>
 
     <!-- Tarjetas de ciudades -->
     <div class="cards-container">
-      <div class="card card-buenosaires">
-        <img src="docs/imagenes/buenosaires/buenosaires.jpg" alt="Buenos Aires" class="city-card-img">
+      <div class="card">
+        <img class="city-card-img" src="docs/imagenes/buenosaires/buenosaires.jpg" alt="Buenos Aires">
         <div class="card-content">
           <h3 data-key="buenosaires_title">Buenos Aires</h3>
+          <p data-key="buenosaires_desc">Capital cosmopolita, ideal para familias.</p>
           <button class="btn-visit" data-page="ciudades/buenosaires.html" data-key="explore_btn">Explorar más detalles</button>
         </div>
       </div>
-      <div class="card card-rosario">
-        <img src="docs/imagenes/rosario/Monumento-a-la-Bandera-1024x768.jpg" alt="Rosario" class="city-card-img">
+      <div class="card">
+        <img class="city-card-img" src="docs/imagenes/rosario/Monumento-a-la-Bandera-1024x768.jpg" alt="Rosario">
         <div class="card-content">
           <h3 data-key="rosario_title">Rosario</h3>
+          <p data-key="rosario_desc">Ciudad ribereña con historia y parques.</p>
           <button class="btn-visit" data-page="ciudades/rosario.html" data-key="explore_btn">Explorar más detalles</button>
         </div>
       </div>
-      <div class="card card-bariloche">
-        <img src="docs/imagenes/bariloche/emilio-lujan-HhobdGoYzaA-unsplash.jpg" alt="Bariloche" class="city-card-img">
+      <div class="card">
+        <img class="city-card-img" src="docs/imagenes/bariloche/emilio-lujan-HhobdGoYzaA-unsplash.jpg" alt="Bariloche">
         <div class="card-content">
           <h3 data-key="bariloche_title">Bariloche</h3>
+          <p data-key="bariloche_desc">Montañas, lagos y aventura en la Patagonia.</p>
           <button class="btn-visit" data-page="ciudades/bariloche.html" data-key="explore_btn">Explorar más detalles</button>
         </div>
       </div>
-      <div class="card card-mendoza">
-        <img src="docs/imagenes/mendoza/mendoza.jpg" alt="Mendoza" class="city-card-img">
+      <div class="card">
+        <img class="city-card-img" src="docs/imagenes/mendoza/mendoza.jpg" alt="Mendoza">
         <div class="card-content">
           <h3 data-key="mendoza_title">Mendoza</h3>
+          <p data-key="mendoza_desc">Tierra del sol y del buen vino.</p>
           <button class="btn-visit" data-page="ciudades/mendoza.html" data-key="explore_btn">Explorar más detalles</button>
         </div>
       </div>
-      <div class="card card-malargue">
-        <img src="docs/imagenes/malargue/malargue.jpg" alt="Malargüe" class="city-card-img">
+      <div class="card">
+        <img class="city-card-img" src="docs/imagenes/malargue/malargue.jpg" alt="Malargüe">
         <div class="card-content">
           <h3 data-key="malargue_title">Malargüe</h3>
+          <p data-key="malargue_desc">Naturaleza y ciencia en el sur mendocino.</p>
           <button class="btn-visit" data-page="ciudades/malargue.html" data-key="explore_btn">Explorar más detalles</button>
         </div>
       </div>
-      <div class="card card-jujuy">
-        <img src="docs/imagenes/jujuy/jujuy.jpg" alt="Jujuy" class="city-card-img">
+      <div class="card">
+        <img class="city-card-img" src="docs/imagenes/jujuy/jujuy.jpg" alt="Jujuy">
         <div class="card-content">
           <h3 data-key="jujuy_title">Jujuy</h3>
+          <p data-key="jujuy_desc">Colores, cultura y paisajes únicos.</p>
           <button class="btn-visit" data-page="ciudades/jujuy.html" data-key="explore_btn">Explorar más detalles</button>
         </div>
       </div>
-      <div class="card card-iguazu">
-        <img src="docs/imagenes/iguazu/iguazu.jpg" alt="Iguazú" class="city-card-img">
+      <div class="card">
+        <img class="city-card-img" src="docs/imagenes/iguazu/iguazu.jpg" alt="Iguazú">
         <div class="card-content">
           <h3 data-key="iguazu_title">Iguazú</h3>
+          <p data-key="iguazu_desc">Las cataratas más impresionantes del mundo.</p>
           <button class="btn-visit" data-page="ciudades/iguazu.html" data-key="explore_btn">Explorar más detalles</button>
         </div>
       </div>
-      <div class="card card-corrientes">
-        <img src="docs/imagenes/corrientes/corrientes.jpg" alt="Corrientes" class="city-card-img">
+      <div class="card">
+        <img class="city-card-img" src="docs/imagenes/corrientes/corrientes.jpg" alt="Corrientes">
         <div class="card-content">
           <h3 data-key="corrientes_title">Corrientes</h3>
+          <p data-key="corrientes_desc">Tradición, río y carnaval.</p>
           <button class="btn-visit" data-page="ciudades/corrientes.html" data-key="explore_btn">Explorar más detalles</button>
         </div>
       </div>
-      <div class="card card-ibera">
-        <img src="docs/imagenes/ibera/ibera.jpg" alt="Iberá" class="city-card-img">
+      <div class="card">
+        <img class="city-card-img" src="docs/imagenes/ibera/ibera.jpg" alt="Iberá">
         <div class="card-content">
           <h3 data-key="ibera_title">Iberá</h3>
+          <p data-key="ibera_desc">Esteros y fauna en estado puro.</p>
           <button class="btn-visit" data-page="ciudades/ibera.html" data-key="explore_btn">Explorar más detalles</button>
         </div>
       </div>
     </div>
 
-    <!-- Tabla de transporte entre ciudades -->
-    <h2 data-key="transporte">Transporte entre ciudades</h2>
-    <table class="table-transporte" id="tabla-transporte">
-      <thead>
-        <tr>
-          <th data-key="desde">Desde</th>
-          <th data-key="hasta">Hasta</th>
-          <th data-key="medio">Medio</th>
-          <th data-key="tiempo">Tiempo</th>
-          <th data-key="precio">Precio aprox.</th>
-          <th data-key="compania">Compañía</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Se rellena por JS -->
-      </tbody>
-    </table>
-
     <!-- Mapa interactivo -->
-    <h2 data-key="mapaInteractivoTitulo">Mapa Interactivo del Viaje Familiar</h2>
-    <p data-key="mapaInteractivoBienvenida">Recorre el itinerario familiar por Argentina. Haz clic en cada ciudad para detalles.</p>
-    <div id="map" style="height: 400px; border-radius: 12px; margin-bottom: 30px;"></div>
-
-    <!-- Lista de equipaje -->
-    <div class="custom-section" id="packing-section">
-      <h2><i class="fas fa-suitcase-rolling" style="color:#f9a825;"></i> <span data-key="packing_title">Lista de equipaje</span></h2>
-      <div class="packing-controls">
-        <button class="custom-btn" id="packing-add" data-key="packing_add">Agregar</button>
-        <select class="custom-select" id="packing-type">
-          <option value="esencial" data-key="packing_essential">Esenciales</option>
-          <option value="opcional" data-key="packing_optional">Opcionales</option>
-        </select>
-        <input class="custom-input" id="packing-input" placeholder="¿Qué más llevás?" data-key="packing_placeholder">
-      </div>
-      <div class="packing-lists">
-        <h4 data-key="packing_essential">Esenciales</h4>
-        <ul id="packing-list-esencial"></ul>
-        <h4 data-key="packing_optional">Opcionales</h4>
-        <ul id="packing-list-opcional"></ul>
-      </div>
+    <div class="custom-section">
+      <h2 data-key="mapaInteractivoTitulo">Mapa Interactivo del Viaje Familiar</h2>
+      <div id="map" style="width: 100%; height: 350px; border-radius: 12px; margin: 18px 0;"></div>
     </div>
 
-    <!-- Consulta a IA -->
-    <div class="custom-section" id="ia-section">
-      <h2><i class="fas fa-robot" style="color:#7c6ae5;"></i> <span data-key="iaTitulo">Consulta a IA</span></h2>
-      <textarea id="iaQuestion" placeholder="Haz tu pregunta sobre el viaje..." data-key="iaPlaceholder"></textarea>
-      <button id="iaSubmit" class="custom-btn" data-key="consultarBtn">Consultar</button>
-      <div id="iaResponse" style="margin-top: 10px;"></div>
+    <!-- Tabla de transporte entre ciudades -->
+    <div class="custom-section">
+      <h2 data-key="transporte">Transporte entre ciudades</h2>
+      <table id="tabla-transporte" class="table-transporte">
+        <thead>
+          <tr>
+            <th data-key="desde">Desde</th>
+            <th data-key="hasta">Hasta</th>
+            <th data-key="medio">Medio</th>
+            <th data-key="tiempo">Tiempo</th>
+            <th data-key="precio">Precio aprox.</th>
+            <th data-key="compania">Compañía</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Se rellena por JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Lista de equipaje -->
+    <div class="custom-section">
+      <h2 data-key="packing_title">Lista de equipaje</h2>
+      <select id="packing-type" class="custom-select">
+        <option value="esencial" data-key="packing_essential">Esenciales</option>
+        <option value="opcional" data-key="packing_optional">Opcionales</option>
+      </select>
+      <input id="packing-input" class="custom-input" data-key="packing_placeholder" placeholder="¿Qué más llevás?">
+      <button id="packing-add" class="custom-btn" data-key="packing_add">Agregar</button>
+      <ul id="packing-list-esencial"></ul>
+      <ul id="packing-list-opcional"></ul>
     </div>
 
     <!-- Conversor de moneda -->
-    <div class="custom-section" id="currency-section">
-      <h2><i class="fas fa-coins" style="color:#7c6ae5;"></i> <span data-key="conversorTitulo">Conversor de moneda</span></h2>
+    <div class="custom-section">
+      <h2 data-key="conversorTitulo">Conversor de moneda</h2>
       <form id="currencyForm">
-        <input type="number" step="0.01" min="0" id="amount" placeholder="Monto" required class="custom-input">
+        <input id="amount" class="custom-input" type="number" min="0" step="any" placeholder="Monto">
         <select id="fromCurrency" class="custom-select">
           <option value="ARS">ARS</option>
           <option value="USD">USD</option>
@@ -162,47 +161,29 @@
         </select>
         <button type="submit" class="custom-btn" data-key="convertirBtn">Convertir</button>
       </form>
-      <div id="result" style="margin-top: 10px; font-weight: bold;"></div>
+      <div id="result"></div>
+    </div>
+
+    <!-- Consulta a IA -->
+    <div class="custom-section">
+      <h2 data-key="iaTitulo">Consulta a IA</h2>
+      <input id="iaQuestion" class="custom-input" data-key="iaPlaceholder" placeholder="Haz tu pregunta sobre el viaje...">
+      <button id="iaSubmit" class="custom-btn" data-key="consultarBtn">Consultar</button>
+      <div id="iaResponse"></div>
     </div>
   </div>
 
-  <footer class="footer">
-    <p>© 2025 Viaje Familiar Argentina</p>
-  </footer>
+  <div class="footer">
+    Argentina Aventura Familiar de 30 Días &copy; 2025
+  </div>
 
-  <script src="js/main.js"></script>
+  <!-- Leaflet JS para el mapa -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-  <script>
-    // Redirección correcta al hacer click en "Explorar más detalles"
-    document.addEventListener("DOMContentLoaded", function() {
-      document.querySelectorAll(".btn-visit").forEach(function(btn) {
-        btn.addEventListener("click", function() {
-          const page = btn.getAttribute("data-page");
-          if (page) window.location.href = page;
-        });
-      });
-    });
-
-    // Mapa interactivo
-    const map = L.map('map').setView([-34.5, -63], 4.2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-    const destinations = [
-      { name: 'Buenos Aires', coords: [-34.6118, -58.3960] },
-      { name: 'Rosario', coords: [-32.9442, -60.6505] },
-      { name: 'Bariloche', coords: [-41.1335, -71.3103] },
-      { name: 'Mendoza', coords: [-32.8908, -68.8272] },
-      { name: 'Malargüe', coords: [-35.4757, -69.5840] },
-      { name: 'Jujuy', coords: [-24.1858, -65.2995] },
-      { name: 'Iguazú', coords: [-25.5952, -54.5732] },
-      { name: 'Corrientes', coords: [-27.4691, -58.8309] },
-      { name: 'Iberá', coords: [-28.2649, -57.4316] }
-    ];
-    destinations.forEach(dest => {
-      L.marker(dest.coords).addTo(map)
-        .bindPopup(dest.name);
-    });
-  </script>
+  <!-- Módulos JS del proyecto (en orden) -->
+  <script src="js/i18n.js"></script>
+  <script src="js/packingList.js"></script>
+  <script src="js/currencyConverter.js"></script>
+  <script src="js/aiQuery.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
