@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Corrientes | Viaje Familiar a Argentina</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 20px;
+      transition: direction 0.3s;
+    }
+    #language-selector {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: rgba(255,255,255,0.8);
+      padding: 5px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .language-btn {
+      font-weight: bold;
+      padding: 8px 12px;
+      margin: 0 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+    .back-link {
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #007BFF;
+    }
+    .ciudad-foto {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      display: block;
+      margin: 30px auto 20px auto;
+      border-radius: 14px;
+      box-shadow: 0 3px 16px rgba(0,0,0,0.15);
+    }
+    .foto-caption {
+      text-align: center;
+      color: #555;
+      font-size: 1em;
+      margin-bottom: 30px;
+    }
+    h1, h2 {
+      color: #0F4761;
+    }
+    ul {
+      margin-bottom: 20px;
+    }
+    iframe {
+      border: 1px solid black;
+    }
+    .rtl {
+      direction: rtl !important;
+      text-align: right !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="language-selector">
+    <button onclick="translatePage('es')" class="language-btn">Español</button>
+    <button onclick="translatePage('he')" class="language-btn">עברית</button>
+    <a href="../index.html" class="back-link" id="back-link">⬅ Volver al itinerario</a>
+  </div>
+
+  <!-- FOTO REPRESENTATIVA DE CORRIENTES -->
+  <img src="../docs/imagenes/corrientes.jpg" alt="Costanera de Corrientes" class="ciudad-foto" id="city-photo">
+  <div class="foto-caption" id="foto-caption">Costanera de Corrientes</div>
+
+  <h1 id="city-title">Corrientes</h1>
+  <p id="welcome-text">Bienvenidos a la sección de Corrientes.</p>
+
+  <h2 id="main-attractions-title">Atracciones principales</h2>
+  <ul id="main-attractions-list">
+    <li><a href="https://corrientes.tur.ar/costanera" target="_blank" id="attraction-0">Costanera de Corrientes</a></li>
+    <li><a href="https://corrientes.tur.ar/puente-general-belgrano" target="_blank" id="attraction-1">Puente General Belgrano</a></li>
+    <li><a href="https://corrientes.tur.ar/catedral" target="_blank" id="attraction-2">Catedral de Corrientes</a></li>
+    <li><a href="https://corrientes.tur.ar/producto/esterosdelibera" target="_blank" id="attraction-3">Esteros del Iberá</a></li>
+  </ul>
+
+  <h2 id="restaurant-types-title">Tipos de restaurantes</h2>
+  <ul id="restaurant-types-list">
+    <li id="rest-0">Parrillas tradicionales</li>
+    <li id="rest-1">Comida regional</li>
+    <li id="rest-2">Restaurantes de pescado de río</li>
+    <li id="rest-3">Cocina internacional</li>
+  </ul>
+
+  <h2 id="map-title">Mapa de Corrientes</h2>
+  <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-58.84%2C-27.49%2C-58.80%2C-27.47&amp;layer=mapnik" width="100%" height="350"></iframe>
+  <br><small><a href="https://www.openstreetmap.org/#map=14/-27.48/-58.82" target="_blank" id="see-bigger-map">Ver mapa más grande</a></small>
+
+  <script>
+    const translations = {
+      es: {
+        "city-title": "Corrientes",
+        "welcome-text": "Bienvenidos a la sección de Corrientes.",
+        "main-attractions-title": "Atracciones principales",
+        "attraction-0": "Costanera de Corrientes",
+        "attraction-1": "Puente General Belgrano",
+        "attraction-2": "Catedral de Corrientes",
+        "attraction-3": "Esteros del Iberá",
+        "restaurant-types-title": "Tipos de restaurantes",
+        "rest-0": "Parrillas tradicionales",
+        "rest-1": "Comida regional",
+        "rest-2": "Restaurantes de pescado de río",
+        "rest-3": "Cocina internacional",
+        "map-title": "Mapa de Corrientes",
+        "see-bigger-map": "Ver mapa más grande",
+        "back-link": "⬅ Volver al itinerario",
+        "foto-caption": "Costanera de Corrientes"
+      },
+      he: {
+        "city-title": "קוריינטס",
+        "welcome-text": "ברוכים הבאים למדור קוריינטס.",
+        "main-attractions-title": "אטרקציות עיקריות",
+        "attraction-0": "טיילת קוריינטס",
+        "attraction-1": "גשר גנרל בלגרנו",
+        "attraction-2": "קתדרלת קוריינטס",
+        "attraction-3": "אסטרוס דל איברה",
+        "restaurant-types-title": "סוגי מסעדות",
+        "rest-0": "מסעדות בשרים מסורתיות",
+        "rest-1": "מטבח אזורי",
+        "rest-2": "מסעדות דגים מהנהר",
+        "rest-3": "מטבח בינלאומי",
+        "map-title": "מפת קוריינטס",
+        "see-bigger-map": "לצפייה במפה גדולה יותר",
+        "back-link": "⬅ חזרה למפת המסלול",
+        "foto-caption": "טיילת קוריינטס"
+      }
+    };
+
+    function translatePage(language) {
+      document.body.dir = (language === 'he') ? 'rtl' : 'ltr';
+      document.getElementById('city-title').textContent = translations[language]["city-title"];
+      document.getElementById('welcome-text').textContent = translations[language]["welcome-text"];
+      document.getElementById('main-attractions-title').textContent = translations[language]["main-attractions-title"];
+      document.getElementById('attraction-0').textContent = translations[language]["attraction-0"];
+      document.getElementById('attraction-1').textContent = translations[language]["attraction-1"];
+      document.getElementById('attraction-2').textContent = translations[language]["attraction-2"];
+      document.getElementById('attraction-3').textContent = translations[language]["attraction-3"];
+      document.getElementById('restaurant-types-title').textContent = translations[language]["restaurant-types-title"];
+      document.getElementById('rest-0').textContent = translations[language]["rest-0"];
+      document.getElementById('rest-1').textContent = translations[language]["rest-1"];
+      document.getElementById('rest-2').textContent = translations[language]["rest-2"];
+      document.getElementById('rest-3').textContent = translations[language]["rest-3"];
+      document.getElementById('map-title').textContent = translations[language]["map-title"];
+      document.getElementById('see-bigger-map').textContent = translations[language]["see-bigger-map"];
+      document.getElementById('back-link').textContent = translations[language]["back-link"];
+      document.getElementById('foto-caption').textContent = translations[language]["foto-caption"];
+    }
+  </script>
+</body>
+</html>
