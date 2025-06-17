@@ -1,56 +1,65 @@
-// js/currencyConverter.js
+// ===============================
+// Conversor de Moneda MCP + Offline + Multilenguaje
+// ===============================
 
-// Configuración de monedas soportadas
-const SUPPORTED_CURRENCIES = ['ARS', 'USD', 'EUR', 'ILS'];
+const CURRENCIES = ['ARS', 'USD', 'EUR', 'ILS'];
+const EXCHANGE_KEY = 'exchangeRates';
 
-// Inicializar selects de moneda
-function initCurrencySelectors() {
-  const fromSelect = document.getElementById('from-currency');
-  const toSelect = document.getElementById('to-currency');
-  
-  SUPPORTED_CURRENCIES.forEach(currency => {
-    const optionFrom = document.createElement('option');
-    optionFrom.value = currency;
-    optionFrom.textContent = currency;
-    fromSelect.appendChild(optionFrom);
-
-    const optionTo = document.createElement('option');
-    optionTo.value = currency;
-    optionTo.textContent = currency;
-    toSelect.appendChild(optionTo);
-  });
+async function fetchRates() {
+  try {
+    const resp = await fetch('https://api.exchangerate.host/latest?base=USD&symbols=ARS,USD,EUR,ILS');
+    const data = await resp.json();
+    if (data && data.rates) {
+      localStorage.setItem(EXCHANGE_KEY, JSON.stringify({
+        rates: data.rates,
+        date: new Date().toISOString()
+      }));
+      return data.rates;
+    }
+  } catch (e) {}
+  // Fallback: localStorage
+  const cached = JSON.parse(localStorage.getItem(EXCHANGE_KEY));
+  return cached ? cached.rates : null;
 }
 
-// Función de conversión
-async function convertCurrency() {
-  const amount = document.getElementById('amount').value;
-  const from = document.getElementById('from-currency').value;
-  const to = document.getElementById('to-currency').value;
-  const resultElement = document.getElementById('result');
-  
-  if (!amount || isNaN(amount)) {
-    resultElement.textContent = "אנא הזן סכום תקין";
+function convertCurrency(amount, from, to, rates) {
+  if (from === to) return amount;
+  // Siempre convierte a USD como intermediario si falta el par directo
+  const usdAmount = from === 'USD' ? amount : amount / rates[from];
+  return to === 'USD' ? usdAmount : usdAmount * rates[to];
+}
+
+async function handleCurrencyConvert(e) {
+  e.preventDefault();
+  const amount = parseFloat(document.getElementById('amount').value);
+  const from = document.getElementById('fromCurrency').value;
+  const to = document.getElementById('toCurrency').value;
+  const resultDiv = document.getElementById('result');
+  if (isNaN(amount) || amount <= 0) {
+    resultDiv.textContent = window.t ? window.t('conversor_monto_invalido') : 'Ingresa un monto válido.';
     return;
   }
-
-  try {
-    const res = await fetch(`https://api.exchangerate.host/latest?base=${from}&symbols=${to}`);
-    if (!res.ok) throw new Error("שגיאה בהמרת המטבע");
-    
-    const data = await res.json();
-    const rate = data.rates[to];
-    
-    if (!rate) {
-      resultElement.textContent = "המרה לא זמינה לזוג זה";
-      return;
-    }
-
-    resultElement.textContent = `${amount} ${from} = ${(amount * rate).toFixed(2)} ${to}`;
-  } catch (error) {
-    console.error("Conversion error:", error);
-    resultElement.textContent = "שגיאה בהמרת המטבע";
+  resultDiv.textContent = window.t ? window.t('cargando') : 'Cargando...';
+  const rates = await fetchRates();
+  if (!rates || !rates[from] || !rates[to]) {
+    resultDiv.textContent = window.t ? window.t('conversor_error') : 'No se pudo obtener la tasa de cambio.';
+    return;
   }
+  const converted = convertCurrency(amount, from, to, rates);
+  resultDiv.textContent = `${window.t ? window.t('conversor_resultado') : 'Resultado'}: ${converted.toLocaleString(undefined, {maximumFractionDigits: 2})} ${to}`;
 }
 
-// Inicializar al cargar
-document.addEventListener('DOMContentLoaded', initCurrencySelectors);
+function translateCurrencyConverter() {
+  document.getElementById('currencyForm').querySelector('button').textContent = window.t ? window.t('convertirBtn') : 'Convertir';
+}
+
+function initCurrencyConverter() {
+  document.getElementById('currencyForm').onsubmit = handleCurrencyConvert;
+  translateCurrencyConverter();
+  window.onLanguageChange = function () {
+    translateCurrencyConverter();
+  };
+}
+
+// Exponer para main.js
+window.initCurrencyConverter = initCurrencyConverter;
