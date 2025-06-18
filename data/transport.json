@@ -12,7 +12,7 @@
     "hasta": "Bariloche",
     "medio": "Vuelo",
     "tiempo": "2:30 h",
-    "precio": "USD 120",
+    "precio": "ARS 108.000",
     "compania": "<a href=\"https://www.aerolineas.com.ar/\" target=\"_blank\" rel=\"noopener noreferrer\">Aerolíneas Argentinas</a>"
   },
   {
@@ -20,7 +20,7 @@
     "hasta": "Mendoza",
     "medio": "Vuelo",
     "tiempo": "2:00 h",
-    "precio": "USD 130",
+    "precio": "ARS 117.000",
     "compania": "<a href=\"https://www.aerolineas.com.ar/\" target=\"_blank\" rel=\"noopener noreferrer\">Aerolíneas Argentinas</a>"
   },
   {
@@ -36,7 +36,7 @@
     "hasta": "Jujuy",
     "medio": "Vuelo + Bus",
     "tiempo": "10:00 h (vía Mendoza/Salta)",
-    "precio": "USD 200",
+    "precio": "ARS 180.000",
     "compania": "<a href=\"https://www.aerolineas.com.ar/\" target=\"_blank\" rel=\"noopener noreferrer\">Aerolíneas Argentinas</a> + Bus"
   },
   {
@@ -44,7 +44,7 @@
     "hasta": "Iguazú",
     "medio": "Vuelo",
     "tiempo": "2:00 h (escala Buenos Aires)",
-    "precio": "USD 140",
+    "precio": "ARS 126.000",
     "compania": "<a href=\"https://www.aerolineas.com.ar/\" target=\"_blank\" rel=\"noopener noreferrer\">Aerolíneas Argentinas</a>"
   },
   {
