@@ -65,15 +65,34 @@
       direction: rtl !important;
       text-align: right !important;
     }
+    .top-bar {
+      background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .btn-lang, .currency-btn {
+      margin: 0 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <div id="language-selector">
-    <button onclick="translatePage('es')" class="language-btn">Español</button>
-    <button onclick="translatePage('he')" class="language-btn">עברית</button>
-    <a href="../index.html" class="back-link" id="back-link">⬅ Volver al itinerario</a>
+  <div class="top-bar">
+    <span data-key="idioma">Idioma:</span>
+    <button class="btn-lang" id="btn-es">Español</button>
+    <button class="btn-lang" id="btn-he">עברית</button>
+    <span data-key="moneda">Moneda:</span>
+    <button id="btn-ars" class="currency-btn">ARS</button>
+    <button id="btn-usd" class="currency-btn">USD</button>
+    <button id="btn-ils" class="currency-btn">ILS</button>
+    <a href="../index.html" class="back-link" id="back-link" data-key="volver_al_itinerario">⬅ Volver al itinerario</a>
   </div>
-
   <!-- FOTO REPRESENTATIVA DE CORRIENTES -->
   <img src="../docs/imagenes/Peatonal.jpg" alt="Costanera de Corrientes" class="ciudad-foto" id="city-photo">
   <div class="foto-caption" id="foto-caption">Costanera de Corrientes</div>
@@ -101,6 +120,7 @@
   <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-58.84%2C-27.49%2C-58.80%2C-27.47&amp;layer=mapnik" width="100%" height="350"></iframe>
   <br><small><a href="https://www.openstreetmap.org/#map=14/-27.48/-58.82" target="_blank" id="see-bigger-map">Ver mapa más grande</a></small>
 
+  <script src="../js/i18n.js"></script>
   <script>
     const translations = {
       es: {
