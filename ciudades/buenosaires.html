@@ -103,12 +103,12 @@
 <body>
   <div class="top-bar">
     <span data-key="idioma">Idioma:</span>
-    <button class="btn-lang" data-lang="es" id="btn-es">Español</button>
-    <button class="btn-lang" data-lang="he" id="btn-he">עברית</button>
+    <button class="btn-lang" id="btn-es">Español</button>
+    <button class="btn-lang" id="btn-he">עברית</button>
     <span data-key="moneda">Moneda:</span>
-    <button id="btn-ars" onclick="cambiarMoneda('ARS')" class="currency-btn">ARS</button>
-    <button id="btn-usd" onclick="cambiarMoneda('USD')" class="currency-btn">USD</button>
-    <button id="btn-ils" onclick="cambiarMoneda('ILS')" class="currency-btn">ILS</button>
+    <button id="btn-ars" class="currency-btn">ARS</button>
+    <button id="btn-usd" class="currency-btn">USD</button>
+    <button id="btn-ils" class="currency-btn">ILS</button>
     <a href="../index.html" class="back-link" id="back-link" data-key="volver_al_itinerario">⬅ Volver al itinerario</a>
   </div>
 
@@ -120,32 +120,32 @@
   <h1 id="city-title" data-key="buenosaires_title">Buenos Aires</h1>
   <p id="welcome-text" data-key="buenosaires_desc">Buenos Aires es la capital de la República Argentina, una ciudad cosmopolita, vibrante y con muchísimas propuestas para disfrutar en familia.</p>
 
-  <h2 data-key="dates-duration-title">Fechas y duración</h2>
+  <h2 data-key="dates_duration">Fechas y duración</h2>
   <ul>
-    <li data-key="stay-duration">Estadía: 28/09 al 02/10 (5 días) y 29/10 (1 día)</li>
-    <li data-key="how-to-arrive">Cómo llegar: Llegada internacional (EZE/AEP) / Vuelo desde Corrientes para la última noche</li>
+    <li data-key="buenosaires_estadia">Estadía: 28/09 al 02/10 (5 días) y 29/10 (1 día)</li>
+    <li data-key="buenosaires_como_llegar">Cómo llegar: Llegada internacional (EZE/AEP) / Vuelo desde Corrientes para la última noche</li>
   </ul>
 
-  <h2 id="main-attractions-title" data-key="atracciones">Lugares imperdibles</h2>
-  <ul id="main-attractions-list">
-    <li><a href="https://es.wikipedia.org/wiki/Obelisco_de_Buenos_Aires" target="_blank" data-key="attraction-0">Obelisco y Avenida 9 de Julio</a></li>
-    <li><a href="https://teatrocolon.org.ar/" target="_blank" data-key="attraction-1">Teatro Colón (visitas guiadas)</a></li>
-    <li><a href="https://es.wikipedia.org/wiki/Caminito" target="_blank" data-key="attraction-2">Caminito y La Boca</a></li>
-    <li><a href="https://turismo.buenosaires.gob.ar/es/article/bosques-de-palermo" target="_blank" data-key="attraction-3">Palermo: bosques, Jardín Japonés, museos, cafés y tiendas</a></li>
-    <li><a href="https://planetario.buenosaires.gob.ar/" target="_blank" data-key="attraction-4">Planetario Galileo Galilei</a></li>
-    <li><a href="https://turismo.buenosaires.gob.ar/es/article/puerto-madero" target="_blank" data-key="attraction-5">Puerto Madero y Reserva Ecológica</a></li>
-    <li><a href="https://www.bellasartes.gob.ar/" target="_blank" data-key="attraction-6">Museo Nacional de Bellas Artes</a></li>
-    <li><a href="https://turismo.buenosaires.gob.ar/es/article/cementerio-de-la-recoleta" target="_blank" data-key="attraction-7">Recoleta: Cementerio, feria y cafés</a></li>
-    <li><a href="https://turismo.buenosaires.gob.ar/es/article/plaza-de-mayo" target="_blank" data-key="attraction-8">Plaza de Mayo y Casa Rosada</a></li>
+  <h2 data-key="atracciones">Lugares imperdibles</h2>
+  <ul>
+    <li data-key="buenosaires_atraccion_0"><a href="https://es.wikipedia.org/wiki/Obelisco_de_Buenos_Aires" target="_blank">Obelisco y Avenida 9 de Julio</a></li>
+    <li data-key="buenosaires_atraccion_1"><a href="https://teatrocolon.org.ar/" target="_blank">Teatro Colón (visitas guiadas)</a></li>
+    <li data-key="buenosaires_atraccion_2"><a href="https://es.wikipedia.org/wiki/Caminito" target="_blank">Caminito y La Boca</a></li>
+    <li data-key="buenosaires_atraccion_3"><a href="https://turismo.buenosaires.gob.ar/es/article/bosques-de-palermo" target="_blank">Palermo: bosques, Jardín Japonés, museos, cafés y tiendas</a></li>
+    <li data-key="buenosaires_atraccion_4"><a href="https://planetario.buenosaires.gob.ar/" target="_blank">Planetario Galileo Galilei</a></li>
+    <li data-key="buenosaires_atraccion_5"><a href="https://turismo.buenosaires.gob.ar/es/article/puerto-madero" target="_blank">Puerto Madero y Reserva Ecológica</a></li>
+    <li data-key="buenosaires_atraccion_6"><a href="https://www.bellasartes.gob.ar/" target="_blank">Museo Nacional de Bellas Artes</a></li>
+    <li data-key="buenosaires_atraccion_7"><a href="https://turismo.buenosaires.gob.ar/es/article/cementerio-de-la-recoleta" target="_blank">Recoleta: Cementerio, feria y cafés</a></li>
+    <li data-key="buenosaires_atraccion_8"><a href="https://turismo.buenosaires.gob.ar/es/article/plaza-de-mayo" target="_blank">Plaza de Mayo y Casa Rosada</a></li>
   </ul>
 
   <h2 data-key="actividades_recomendadas">Actividades recomendadas</h2>
   <ul>
-    <li><a href="https://turismo.buenosaires.gob.ar/es/article/tango" target="_blank" data-key="rec-activity-0">Tango y espectáculos típicos (San Telmo o La Boca)</a></li>
-    <li><a href="https://turismo.buenosaires.gob.ar/es/article/recorridos-en-bicicleta" target="_blank" data-key="rec-activity-1">Tours guiados a pie o en bicicleta</a></li>
-    <li data-key="rec-activity-2">Picnic en los bosques de Palermo</li>
-    <li><a href="https://turismo.buenosaires.gob.ar/es/agenda" target="_blank" data-key="rec-activity-3">Visita a museos y ferias artesanales</a></li>
-    <li><a href="https://turismo.buenosaires.gob.ar/es/article/puerto-madero" target="_blank" data-key="rec-activity-4">Paseo en barco por el Río de la Plata (Puerto Madero)</a></li>
+    <li data-key="buenosaires_actividad_0"><a href="https://turismo.buenosaires.gob.ar/es/article/tango" target="_blank">Tango y espectáculos típicos (San Telmo o La Boca)</a></li>
+    <li data-key="buenosaires_actividad_1"><a href="https://turismo.buenosaires.gob.ar/es/article/recorridos-en-bicicleta" target="_blank">Tours guiados a pie o en bicicleta</a></li>
+    <li data-key="buenosaires_actividad_2">Picnic en los bosques de Palermo</li>
+    <li data-key="buenosaires_actividad_3"><a href="https://turismo.buenosaires.gob.ar/es/agenda" target="_blank">Visita a museos y ferias artesanales</a></li>
+    <li data-key="buenosaires_actividad_4"><a href="https://turismo.buenosaires.gob.ar/es/article/puerto-madero" target="_blank">Paseo en barco por el Río de la Plata (Puerto Madero)</a></li>
   </ul>
 
   <section>
@@ -287,55 +287,5 @@
 
   <!-- Traducción y lógica centralizada -->
   <script src="../js/i18n.js"></script>
-  <!-- Mock IA para pruebas offline -->
-  <script>
-    // Simulación de IA para desarrollo offline
-    function mockIA(btnId, loadingId, respId, esp, heb) {
-      const btn = document.getElementById(btnId);
-      btn.onclick = () => {
-        btn.disabled = true;
-        document.getElementById(loadingId).style.display = "block";
-        setTimeout(() => {
-          document.getElementById(respId).innerHTML = (document.documentElement.lang === "he" ? heb : esp);
-          btn.disabled = false;
-          document.getElementById(loadingId).style.display = "none";
-        }, 1500);
-      }
-    }
-    mockIA('generate-menu-btn', 'ai-menu-loading-indicator', 'ai-menu-response',
-      "Ejemplo de menú saludable: <br><b>Desayuno:</b> Omelette con espinaca y queso. <b>Almuerzo:</b> Ensalada de pollo y vegetales frescos. <b>Cena:</b> Pescado grillado con puré de calabaza.",
-      "תפריט לדוגמה: <br><b>ארוחת בוקר:</b> חביתה עם תרד וגבינה. <b>ארוחת צהריים:</b> סלט עוף וירקות טריים. <b>ארוחת ערב:</b> דג בגריל עם פירה דלעת."
-    );
-    mockIA('generate-accommodation-btn', 'ai-accommodation-loading-indicator', 'ai-accommodation-response',
-      "Sugerencias: <ul><li>Hotel Alvear Palace</li><li>Depto משפחתי בפלרמו</li><li>Airbnb ליד רקולטה</li></ul>",
-      "הצעות: <ul><li>מלון אלבאר פאלאס</li><li>דירה משפחתית בפלרמו</li><li>Airbnb ליד רקולטה</li></ul>"
-    );
-    mockIA('generate-family-tips-btn', 'ai-family-tips-loading-indicator', 'ai-family-tips-response',
-      "<ul><li>Usar la tarjeta SUBE para moverse.</li><li>Disfrutar espectáculos gratuitos los fines de semana.</li><li>Reservar alojamiento con anticipación.</li><li>Visitar museos con entrada libre.</li><li>Llevar paraguas por si llueve.</li></ul>",
-      "<ul><li>השתמשו בכרטיס SUBE לתחבורה.</li><li>הופעות רחוב חינם בסופי שבוע.</li><li>להזמין לינה מראש.</li><li>לבקר במוזיאונים עם כניסה חופשית.</li><li>להביא מטריה לימים גשומים.</li></ul>"
-    );
-    mockIA('generate-budget-btn', 'ai-budget-loading-indicator', 'ai-budget-response',
-      "Presupuesto estimado diario: <ul><li>Alojamiento: 50-120 USD</li><li>Comida: 30-70 USD</li><li>Transporte: 3-5 USD</li><li>Actividades: 20-50 USD</li><li>Entradas: 0-15 USD</li></ul> Para ahorrar: reservar con anticipación, aprovechar actividades gratuitas y usar transporte público.",
-      "תקציב יומי משוער: <ul><li>לינה: 50-120 דולר</li><li>אוכל: 30-70 דולר</li><li>תחבורה: 3-5 דולר</li><li>פעילויות: 20-50 דולר</li><li>כניסות: 0-15 דולר</li></ul> לחסכון: להזמין מראש, לנצל פעילויות חינם ולהשתמש בתחבורה ציבורית."
-    );
-
-    // Cambio de idioma funcional
-    document.getElementById('btn-es').onclick = function() {
-      document.documentElement.lang = 'es';
-      document.body.classList.remove('rtl');
-      document.getElementById('btn-es').classList.add('active');
-      document.getElementById('btn-he').classList.remove('active');
-      // Aquí deberías llamar a tu función de traducción centralizada
-      if(window.translatePage) translatePage('es');
-    };
-    document.getElementById('btn-he').onclick = function() {
-      document.documentElement.lang = 'he';
-      document.body.classList.add('rtl');
-      document.getElementById('btn-he').classList.add('active');
-      document.getElementById('btn-es').classList.remove('active');
-      // Aquí deberías llamar a tu función de traducción centralizada
-      if(window.translatePage) translatePage('he');
-    };
-  </script>
 </body>
 </html>

@@ -75,6 +75,7 @@
     <a href="../index.html" class="back-link" id="back-link" data-key="volver_al_itinerario">⬅ Volver al itinerario</a>
   </div>
   <script src="../js/i18n.js"></script>
+  <script src="../js/translations.js"></script>
 
   <h1 id="city-title">Malargüe</h1>
   <p id="welcome-text">Bienvenidos a la sección de Malargüe.</p>
@@ -101,42 +102,7 @@
 
   <script>
     // Diccionario de traducciones español ↔ hebreo
-    const translations = {
-      es: {
-        "city-title": "Malargüe",
-        "welcome-text": "Bienvenidos a la sección de Malargüe.",
-        "main-attractions-title": "Atracciones principales",
-        "attraction-0": "Caverna de Las Brujas",
-        "attraction-1": "Castillos de Pincheira",
-        "attraction-2": "Laguna de Llancanelo",
-        "attraction-3": "Las Leñas (centro de esquí)",
-        "restaurant-types-title": "Tipos de restaurantes",
-        "rest-0": "Parrillas",
-        "rest-1": "Restaurantes regionales",
-        "rest-2": "Pizzerías",
-        "rest-3": "Cafés y casas de té",
-        "map-title": "Mapa de Malargüe",
-        "see-bigger-map": "Ver mapa más grande",
-        "back-link": "⬅ Volver al itinerario"
-      },
-      he: {
-        "city-title": "מאלרגואה",
-        "welcome-text": "ברוכים הבאים למדור מאלרגואה.",
-        "main-attractions-title": "אטרקציות עיקריות",
-        "attraction-0": "מערת המכשפות",
-        "attraction-1": "טירות פינצ'יירה",
-        "attraction-2": "לגונת יאנקנלו",
-        "attraction-3": "לאס לנייס (מרכז הסקי)",
-        "restaurant-types-title": "סוגי מסעדות",
-        "rest-0": "מסעדות בשרים (פריז'ות)",
-        "rest-1": "מסעדות אזוריות",
-        "rest-2": "פיצריות",
-        "rest-3": "בתי קפה ובתי תה",
-        "map-title": "מפת מאלרגואה",
-        "see-bigger-map": "לצפייה במפה גדולה יותר",
-        "back-link": "⬅ חזרה למפת המסלול"
-      }
-    };
+    // Las traducciones ahora se importan desde ../js/translations.js
 
     function translatePage(language) {
       document.body.dir = (language === 'he') ? 'rtl' : 'ltr';
