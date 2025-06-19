@@ -3,187 +3,270 @@
 <head>
   <meta charset="UTF-8">
   <title data-key="tituloPrincipal">Itinerario Familiar por Argentina</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Hoja de estilos principal -->
-  <link rel="stylesheet" href="css/main.css">
-  <!-- Leaflet CSS para el mapa -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <style>
+    #map {
+      width: 100%;
+      height: 400px;
+      margin: 40px 0;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+  </style>
 </head>
 <body>
-  <!-- Barra superior de idioma y moneda -->
   <div class="top-bar">
-    <button id="btn-es" class="btn-lang active">ES</button>
-    <button id="btn-he" class="btn-lang">HE</button>
-    <button class="btn-currency" data-currency="ARS">ARS</button>
-    <button class="btn-currency" data-currency="USD">USD</button>
-    <button class="btn-currency" data-currency="EUR">EUR</button>
-    <button class="btn-currency" data-currency="ILS">ILS</button>
+    <span data-key="idioma">Idioma:</span>
+    <button class="btn-lang" data-lang="es" id="btn-es" data-key="idioma-es">Español</button>
+    <button class="btn-lang" data-lang="he" id="btn-he" data-key="idioma-he">עברית</button>
+    <span data-key="moneda">Moneda:</span>
+    <button class="btn-currency" data-currency="ARS" id="btn-ars" data-key="ARS">ARS</button>
+    <button class="btn-currency" data-currency="USD" id="btn-usd" data-key="USD">USD</button>
+    <button class="btn-currency" data-currency="ILS" id="btn-ils" data-key="ILS">ILS</button>
+    <button class="btn-currency" data-currency="EUR" id="btn-eur" data-key="EUR">EUR</button>
+    <a href="index.html" class="back-link" id="back-link" data-key="volver_btn">⬅ Volver al itinerario</a>
   </div>
 
-  <div class="main-container">
+  <main>
     <h1 data-key="tituloPrincipal">Itinerario Familiar por Argentina</h1>
-    <p data-key="bienvenidaPrincipal">
-      ¡Bienvenidos! Haz clic en cada ciudad para ver información, mapas y recomendaciones.
-    </p>
-
-    <!-- Tarjetas de ciudades -->
-    <div class="cards-container">
-      <div class="card">
-        <img class="city-card-img" src="docs/imagenes/buenosaires/buenosaires.jpg" alt="Buenos Aires">
-        <div class="card-content">
-          <h3 data-key="buenosaires_title">Buenos Aires</h3>
-          <p data-key="buenosaires_desc">Capital cosmopolita, ideal para familias.</p>
-          <button class="btn-visit" data-page="ciudades/buenosaires.html" data-key="explore_btn">Explorar más detalles</button>
+    <p data-key="bienvenidaPrincipal">¡Bienvenidos! Haz clic en cada ciudad para ver información, mapas y recomendaciones.</p>
+    
+    <div class="tarjetas-grid">
+      <div class="tarjeta-ciudad">
+        <img src="docs/imagenes/buenosaires/buenosaires.jpg" alt="Buenos Aires" class="ciudad-foto-grid">
+        <div class="tarjeta-contenido">
+          <h2 data-key="buenosaires_title">Buenos Aires</h2>
+          <p data-key="buenosaires_resena">Ciudad cosmopolita, ideal para familias.</p>
+          <a href="ciudades/buenosaires.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
         </div>
       </div>
-      <div class="card">
-        <img class="city-card-img" src="docs/imagenes/rosario/Monumento-a-la-Bandera-1024x768.jpg" alt="Rosario">
-        <div class="card-content">
-          <h3 data-key="rosario_title">Rosario</h3>
-          <p data-key="rosario_desc">Ciudad ribereña con historia y parques.</p>
-          <button class="btn-visit" data-page="ciudades/rosario.html" data-key="explore_btn">Explorar más detalles</button>
+      <div class="tarjeta-ciudad">
+        <img src="docs/imagenes/rosario/rosario.jpg" alt="Rosario" class="ciudad-foto-grid">
+        <div class="tarjeta-contenido">
+          <h2 data-key="rosario_title">Rosario</h2>
+          <p data-key="rosario_resena">Río, parques y cultura joven.</p>
+          <a href="ciudades/rosario.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
         </div>
       </div>
-      <div class="card">
-        <img class="city-card-img" src="docs/imagenes/bariloche/emilio-lujan-HhobdGoYzaA-unsplash.jpg" alt="Bariloche">
-        <div class="card-content">
-          <h3 data-key="bariloche_title">Bariloche</h3>
-          <p data-key="bariloche_desc">Montañas, lagos y aventura en la Patagonia.</p>
-          <button class="btn-visit" data-page="ciudades/bariloche.html" data-key="explore_btn">Explorar más detalles</button>
+      <div class="tarjeta-ciudad">
+        <img src="docs/imagenes/bariloche/bariloche.jpg" alt="Bariloche" class="ciudad-foto-grid">
+        <div class="tarjeta-contenido">
+          <h2 data-key="bariloche_title">Bariloche</h2>
+          <p data-key="bariloche_resena">Montañas, lagos y chocolate en la Patagonia.</p>
+          <a href="ciudades/bariloche.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
         </div>
       </div>
-      <div class="card">
-        <img class="city-card-img" src="docs/imagenes/mendoza/Mendoza-Puente-del-Inca.jpg" alt="Mendoza">
-        <div class="card-content">
-          <h3 data-key="mendoza_title">Mendoza</h3>
-          <p data-key="mendoza_desc">Tierra del sol y del buen vino.</p>
-          <button class="btn-visit" data-page="ciudades/mendoza.html" data-key="explore_btn">Explorar más detalles</button>
+      <div class="tarjeta-ciudad">
+        <img src="docs/imagenes/mendoza/mendoza.jpg" alt="Mendoza" class="ciudad-foto-grid">
+        <div class="tarjeta-contenido">
+          <h2 data-key="mendoza_title">Mendoza</h2>
+          <p data-key="mendoza_resena">Viñedos, montañas y aventura.</p>
+          <a href="ciudades/mendoza.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
         </div>
       </div>
-      <div class="card">
-        <img class="city-card-img" src="docs/imagenes/malargue/Malargue-Argentina.jpg" alt="Malargüe">
-        <div class="card-content">
-          <h3 data-key="malargue_title">Malargüe</h3>
-          <p data-key="malargue_desc">Naturaleza y ciencia en el sur mendocino.</p>
-          <button class="btn-visit" data-page="ciudades/malargue.html" data-key="explore_btn">Explorar más detalles</button>
+      <div class="tarjeta-ciudad">
+        <img src="docs/imagenes/malargue/malargue.jpg" alt="Malargüe" class="ciudad-foto-grid">
+        <div class="tarjeta-contenido">
+          <h2 data-key="malargue_title">Malargüe</h2>
+          <p data-key="malargue_resena">Naturaleza, volcanes y aventura en el sur mendocino.</p>
+          <a href="ciudades/malargue.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
         </div>
       </div>
-      <div class="card">
-        <img class="city-card-img" src="docs/imagenes/jujuy/julieta-acosta-u4GAAc-myrg-unsplash.jpg" alt="Jujuy">
-        <div class="card-content">
-          <h3 data-key="jujuy_title">Jujuy</h3>
-          <p data-key="jujuy_desc">Colores, cultura y paisajes únicos.</p>
-          <button class="btn-visit" data-page="ciudades/jujuy.html" data-key="explore_btn">Explorar más detalles</button>
+      <div class="tarjeta-ciudad">
+        <img src="docs/imagenes/jujuy/jujuy.jpg" alt="Jujuy" class="ciudad-foto-grid">
+        <div class="tarjeta-contenido">
+          <h2 data-key="jujuy_title">Jujuy</h2>
+          <p data-key="jujuy_resena">Colores, cultura y paisajes únicos del norte argentino.</p>
+          <a href="ciudades/jujuy.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
         </div>
       </div>
-      <div class="card">
-        <img class="city-card-img" src="docs/imagenes/iguazu/claudio-mota-R9ZvATRLDSk-unsplash.jpg" alt="Iguazú">
-        <div class="card-content">
-          <h3 data-key="iguazu_title">Iguazú</h3>
-          <p data-key="iguazu_desc">Las cataratas más impresionantes del mundo.</p>
-          <button class="btn-visit" data-page="ciudades/iguazu.html" data-key="explore_btn">Explorar más detalles</button>
+      <div class="tarjeta-ciudad">
+        <img src="docs/imagenes/iguazu/iguazu.jpg" alt="Iguazú" class="ciudad-foto-grid">
+        <div class="tarjeta-contenido">
+          <h2 data-key="iguazu_title">Iguazú</h2>
+          <p data-key="iguazu_resena">Las cataratas más impresionantes de Sudamérica.</p>
+          <a href="ciudades/iguazu.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
         </div>
       </div>
-      <div class="card">
-        <img class="city-card-img" src="docs/imagenes/corrientes/fachy-marin-A5xJay6N_fI-unsplash.jpg" alt="Corrientes">
-        <div class="card-content">
-          <h3 data-key="corrientes_title">Corrientes</h3>
-          <p data-key="corrientes_desc">Tradición, río y carnaval.</p>
-          <button class="btn-visit" data-page="ciudades/corrientes.html" data-key="explore_btn">Explorar más detalles</button>
+      <div class="tarjeta-ciudad">
+        <img src="docs/imagenes/corrientes/corrientes.jpg" alt="Corrientes" class="ciudad-foto-grid">
+        <div class="tarjeta-contenido">
+          <h2 data-key="corrientes_title">Corrientes</h2>
+          <p data-key="corrientes_resena">Chamamé, río y playas en el litoral argentino.</p>
+          <a href="ciudades/corrientes.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
         </div>
       </div>
-      <div class="card">
-        <img class="city-card-img" src="docs/imagenes/ibera/snapsaga-DMVuTOv5Vys-unsplash.jpg" alt="Iberá">
-        <div class="card-content">
-          <h3 data-key="ibera_title">Iberá</h3>
-          <p data-key="ibera_desc">Esteros y fauna en estado puro.</p>
-          <button class="btn-visit" data-page="ciudades/ibera.html" data-key="explore_btn">Explorar más detalles</button>
+      <div class="tarjeta-ciudad">
+        <img src="docs/imagenes/ibera/ibera.jpg" alt="Iberá" class="ciudad-foto-grid">
+        <div class="tarjeta-contenido">
+          <h2 data-key="ibera_title">Iberá</h2>
+          <p data-key="ibera_resena">Esteros, fauna y naturaleza virgen.</p>
+          <a href="ciudades/ibera.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
         </div>
       </div>
     </div>
 
-    <!-- Mapa interactivo -->
-    <div class="custom-section">
-      <h2 data-key="mapaInteractivoTitulo">Mapa Interactivo del Viaje Familiar</h2>
-      <div id="map" style="width: 100%; height: 350px; border-radius: 12px; margin: 18px 0;"></div>
-    </div>
+    <h2 data-key="transporte">Transporte entre ciudades</h2>
+    <table>
+      <thead>
+        <tr>
+          <th data-key="desde">Desde</th>
+          <th data-key="hasta">Hasta</th>
+          <th data-key="medio">Medio</th>
+          <th data-key="tiempo">Tiempo</th>
+          <th data-key="precio">Precio aprox.</th>
+          <th data-key="compania">Compañía</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-key="buenosaires_title">Buenos Aires</td>
+          <td data-key="rosario_title">Rosario</td>
+          <td data-key="bus">Bus</td>
+          <td>4h 30m</td>
+          <td>ARS 12.000</td>
+          <td><a href="https://www.plataforma10.com.ar/" target="_blank">Plataforma 10</a></td>
+        </tr>
+        <tr>
+          <td data-key="buenosaires_title">Buenos Aires</td>
+          <td data-key="bariloche_title">Bariloche</td>
+          <td data-key="avion">Avión</td>
+          <td>2h 20m</td>
+          <td>ARS 45.000</td>
+          <td><a href="https://www.aerolineas.com.ar/" target="_blank">Aerolíneas Argentinas</a></td>
+        </tr>
+        <tr>
+          <td data-key="bariloche_title">Bariloche</td>
+          <td data-key="mendoza_title">Mendoza</td>
+          <td data-key="avion">Avión</td>
+          <td>1h 50m</td>
+          <td>ARS 38.000</td>
+          <td><a href="https://www.aerolineas.com.ar/" target="_blank">Aerolíneas Argentinas</a></td>
+        </tr>
+        <tr>
+          <td data-key="mendoza_title">Mendoza</td>
+          <td data-key="malargue_title">Malargüe</td>
+          <td data-key="bus">Bus</td>
+          <td>5h 00m</td>
+          <td>ARS 10.000</td>
+          <td><a href="https://www.plataforma10.com.ar/" target="_blank">Plataforma 10</a></td>
+        </tr>
+        <tr>
+          <td data-key="buenosaires_title">Buenos Aires</td>
+          <td data-key="jujuy_title">Jujuy</td>
+          <td data-key="avion">Avión</td>
+          <td>2h 10m</td>
+          <td>ARS 40.000</td>
+          <td><a href="https://www.aerolineas.com.ar/" target="_blank">Aerolíneas Argentinas</a></td>
+        </tr>
+        <tr>
+          <td data-key="buenosaires_title">Buenos Aires</td>
+          <td data-key="iguazu_title">Iguazú</td>
+          <td data-key="avion">Avión</td>
+          <td>1h 50m</td>
+          <td>ARS 36.000</td>
+          <td><a href="https://www.aerolineas.com.ar/" target="_blank">Aerolíneas Argentinas</a></td>
+        </tr>
+        <tr>
+          <td data-key="corrientes_title">Corrientes</td>
+          <td data-key="ibera_title">Iberá</td>
+          <td data-key="bus">Bus</td>
+          <td>3h 00m</td>
+          <td>ARS 7.000</td>
+          <td><a href="https://www.plataforma10.com.ar/" target="_blank">Plataforma 10</a></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- Tabla de transporte entre ciudades -->
-    <div class="custom-section">
-      <h2 data-key="transporte">Transporte entre ciudades</h2>
-      <table id="tabla-transporte" class="table-transporte">
-        <thead>
-          <tr>
-            <th data-key="desde">Desde</th>
-            <th data-key="hasta">Hasta</th>
-            <th data-key="medio">Medio</th>
-            <th data-key="tiempo">Tiempo</th>
-            <th data-key="precio">Precio aprox.</th>
-            <th data-key="compania">Compañía</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Se rellena por JS -->
-        </tbody>
-      </table>
-    </div>
+    <h2 data-key="mapaInteractivoTitulo">Mapa Interactivo del Viaje Familiar</h2>
+    <div id="map"></div>
+  </main>
 
-    <!-- Lista de equipaje -->
-    <div class="custom-section">
-      <h2 data-key="packing_title">Lista de equipaje</h2>
-      <select id="packing-type" class="custom-select">
-        <option value="esencial" data-key="packing_essential">Esenciales</option>
-        <option value="opcional" data-key="packing_optional">Opcionales</option>
+  <section id="conversor-moneda">
+    <h2 data-key="conversor_moneda_titulo">Conversor de moneda</h2>
+    <form id="form-conversor">
+      <input type="number" id="monto" placeholder="Monto" data-key="conversor_moneda_monto" required>
+      <select id="moneda-origen">
+        <option value="ARS" data-key="ARS">ARS</option>
+        <option value="USD" data-key="USD">USD</option>
+        <option value="EUR" data-key="EUR">EUR</option>
+        <option value="ILS" data-key="ILS">ILS</option>
       </select>
-      <input id="packing-input" class="custom-input" data-key="packing_placeholder" placeholder="¿Qué más llevás?">
-      <button id="packing-add" class="custom-btn" data-key="packing_add">Agregar</button>
-      <ul id="packing-list-esencial"></ul>
-      <ul id="packing-list-opcional"></ul>
+      <span>→</span>
+      <select id="moneda-destino">
+        <option value="ARS" data-key="ARS">ARS</option>
+        <option value="USD" data-key="USD">USD</option>
+        <option value="EUR" data-key="EUR">EUR</option>
+        <option value="ILS" data-key="ILS">ILS</option>
+      </select>
+      <button type="submit" data-key="conversor_moneda_convertir">Convertir</button>
+    </form>
+    <div id="resultado-conversor"></div>
+  </section>
+
+  <section id="packing-list">
+    <h2 data-key="packing_title">Lista de equipaje</h2>
+    <div>
+      <input type="text" id="packing-input" placeholder="¿Qué más llevar?" data-key="packing_placeholder">
+      <select id="packing-type">
+        <option value="essential" data-key="packing_essential">Esencial</option>
+        <option value="optional" data-key="packing_optional">Opcional</option>
+      </select>
+      <button id="packing-add" data-key="packing_add">Agregar</button>
     </div>
-
-    <!-- Conversor de moneda -->
-    <div class="custom-section">
-      <h2 data-key="conversorTitulo">Conversor de moneda</h2>
-      <form id="currencyForm">
-        <input id="amount" class="custom-input" type="number" min="0" step="any" placeholder="Monto">
-        <select id="fromCurrency" class="custom-select">
-          <option value="ARS">ARS</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="ILS">ILS</option>
-        </select>
-        <span>→</span>
-        <select id="toCurrency" class="custom-select">
-          <option value="ARS">ARS</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="ILS">ILS</option>
-        </select>
-        <button type="submit" class="custom-btn" data-key="convertirBtn">Convertir</button>
-      </form>
-      <div id="result"></div>
+    <div class="packing-columns">
+      <div>
+        <h3 data-key="packing_essential">Esenciales</h3>
+        <ul id="packing-essentials"></ul>
+      </div>
+      <div>
+        <h3 data-key="packing_optional">Opcionales</h3>
+        <ul id="packing-optionals"></ul>
+      </div>
     </div>
+  </section>
 
-    <!-- Consulta a IA -->
-    <div class="custom-section">
-      <h2 data-key="iaTitulo">Consulta a IA</h2>
-      <input id="iaQuestion" class="custom-input" data-key="iaPlaceholder" placeholder="Haz tu pregunta sobre el viaje...">
-      <button id="iaSubmit" class="custom-btn" data-key="consultarBtn">Consultar</button>
-      <div id="iaResponse"></div>
-    </div>
-  </div>
+  <section id="ia-consulta">
+    <h2 data-key="ia_titulo">Consulta a IA experta en viajes familiares</h2>
+    <form id="ia-form">
+      <input type="text" id="ia-pregunta" placeholder="Escribe tu pregunta..." data-key="ia_placeholder" required>
+      <button type="submit" id="ia-enviar" data-key="ia_enviar">Consultar</button>
+    </form>
+    <div id="ia-resultado"></div>
+  </section>
 
-  <div class="footer">
-    Argentina Aventura Familiar de 30 Días &copy; 2025
-  </div>
+  <footer class="footer">
+    <p data-key="footer_copyright">© 2025 Viaje Familiar Argentina</p>
+  </footer>
 
-  <!-- Leaflet JS para el mapa -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
-  <!-- Módulos JS del proyecto (en orden) -->
   <script src="js/i18n.js"></script>
-  <script src="js/packingList.js"></script>
-  <script src="js/currencyConverter.js"></script>
-  <script src="js/aiQuery.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/moneda-mcp.js"></script>
+  <script src="js/conversor-moneda.js"></script>
+  <script src="js/packing-list.js"></script>
+  <script src="js/ia-consulta.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Coordenadas aproximadas de las ciudades/destinos
+    const destinos = [
+      { nombre: "Buenos Aires", lat: -34.6037, lng: -58.3816 },
+      { nombre: "Rosario", lat: -32.9442, lng: -60.6505 },
+      { nombre: "Bariloche", lat: -41.1335, lng: -71.3103 },
+      { nombre: "Mendoza", lat: -32.8908, lng: -68.8272 },
+      { nombre: "Malargüe", lat: -35.4756, lng: -69.5846 },
+      { nombre: "Jujuy", lat: -24.1858, lng: -65.2995 },
+      { nombre: "Iguazú", lat: -25.5952, lng: -54.5736 },
+      { nombre: "Corrientes", lat: -27.4692, lng: -58.8306 },
+      { nombre: "Iberá", lat: -28.5535, lng: -57.2822 }
+    ];
+    const map = L.map('map').setView([-32.5, -60], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Leaflet | © OpenStreetMap contributors'
+    }).addTo(map);
+    destinos.forEach(dest => {
+      L.marker([dest.lat, dest.lng]).addTo(map)
+        .bindPopup(dest.nombre);
+    });
+  </script>
 </body>
 </html>
