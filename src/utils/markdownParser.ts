@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LanguageContext } from '../constants';
+import { LanguageContext } from '../config/constants';
 
 export function useTranslation() {
   const { language, dictionary } = useContext(LanguageContext);

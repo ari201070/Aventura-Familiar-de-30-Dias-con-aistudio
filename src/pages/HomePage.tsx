@@ -1,10 +1,11 @@
+// filepath: [HomePage.tsx](http://_vscodecontentref_/8)
 import React, { useEffect, useState } from 'react';
 import CityCard from '../components/CityCard';
-import { City } from '../types';
-import { useTranslation } from '../utils/markdownParser';
+import { City } from '../config/types';
+import { useAppContext } from '../hooks/useAppContext';
 
 const HomePage: React.FC = () => {
-  const t = useTranslation();
+  const { t } = useAppContext();
   const [cities, setCities] = useState<City[]>([]);
 
   useEffect(() => {
@@ -15,21 +16,13 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="homepage">
-      <header className="top-bar">
-        <button className="lang-btn">{t('ES')}</button>
-        <button className="lang-btn">{t('HE')}</button>
-        <button className="currency-btn">{t('ARS')}</button>
-        <button className="currency-btn">{t('USD')}</button>
-        <button className="currency-btn">{t('ILS')}</button>
-        <button className="currency-btn">{t('EUR')}</button>
-      </header>
       <h1>{t('Itinerario familiar de 30 días por Argentina')}</h1>
       <div className="city-list">
         {cities.map(city => (
-          <CityCard key={city.name} city={city} onSelect={() => window.location.href = `/ciudades/${city.name}.html`} />
+          <CityCard key={city.name} city={city} onSelect={(name) => window.location.href = `/ciudades/${name}.html`} />
         ))}
       </div>
-      {/* Conversor de moneda, lista de equipaje y consulta IA van aquí como módulos independientes */}
+      {/* Aquí puedes agregar los módulos: conversor de moneda, lista de equipaje, consulta IA */}
     </div>
   );
 };

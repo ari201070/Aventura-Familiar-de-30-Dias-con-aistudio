@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { City, PointOfInterest } from '../types';
+import { City, PointOfInterest } from '../config/types';
 import { useAppContext } from '../App';
 
 declare var L: any; // Declare L from Leaflet CDN
