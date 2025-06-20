@@ -1,9 +1,8 @@
-
 import React, { useState, useCallback, useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { AppContext } from './contexts/AppContext'; 
-import { Language, Currency, AppContextType, TranslationSet } from './config/types'; 
-import { translations, LANGUAGES, CURRENCIES } from './config/constants'; 
+import { AppContext } from './contexts/AppContext';
+import { Language, Currency, AppContextType, TranslationSet } from './config/types';
+import { translations } from './config/constants';
 import HomePage from './pages/HomePage';
 import CityDetailPage from './pages/CityDetailPage';
 import TopBar from './components/TopBar';
@@ -39,7 +38,7 @@ const App: React.FC = () => {
 
   const t = useCallback((key: string, replacements?: Record<string, string>): string => {
     const langSet = translations[language] as TranslationSet;
-    let translatedString = langSet[key] || key; // Fallback to key if translation not found
+    let translatedString = langSet[key] || key;
     if (replacements) {
       Object.keys(replacements).forEach(placeholder => {
         translatedString = translatedString.replace(`{${placeholder}}`, replacements[placeholder]);

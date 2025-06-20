@@ -1,12 +1,13 @@
-
+// filepath: [Footer.tsx](http://_vscodecontentref_/6)
 import React from 'react';
-import { useAppContext } from '../App';
+import { useAppContext } from '../hooks/useAppContext';
 
 const Footer: React.FC = () => {
   const { t } = useAppContext();
+
   return (
-    <footer className="bg-gray-800 text-white text-center p-6 shadow-inner mt-auto">
-      <p>&copy; {new Date().getFullYear()} {t('footerText')}</p>
+    <footer className="footer">
+      <p>{t('footer_copyright') || '© 2025 Viaje Familiar Argentina'}</p>
     </footer>
   );
 };
