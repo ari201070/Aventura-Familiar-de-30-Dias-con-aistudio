@@ -1,272 +1,220 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title data-key="tituloPrincipal">Itinerario Familiar por Argentina</title>
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- PWA Meta Tags -->
+  <meta name="application-name" content="Argentina Aventura Familiar">
+  <meta name="description" content="Itinerario interactivo para un viaje familiar de 30 días por Argentina con mapas, conversor de moneda y funciones offline.">
+  <meta name="keywords" content="Argentina, viaje, familia, itinerario, turismo, mapa, offline">
+  <meta name="author" content="Argentina Aventura Familiar">
+
+  <!-- Theme and Display -->
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="background-color" content="#f0f9ff">
+  <meta name="color-scheme" content="light">
+
+  <!-- Mobile Optimizations -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Viaje Argentina">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="/icons/icon-192x192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+  <link rel="mask-icon" href="/icons/icon-192x192.png" color="#4f46e5">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://api.polygon.io">
+  <link rel="preconnect" href="https://generativelanguage.googleapis.com">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Critical CSS -->
   <style>
-    #map {
+    /* Loading screen to prevent flash */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 400px;
-      margin: 40px 0;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .loading-content {
+      text-align: center;
+    }
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top: 4px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    /* Hide loading when app loads */
+    .app-loaded #loading-screen {
+      display: none;
     }
   </style>
+
+  <title>Argentina Aventura Familiar - 30 Días</title>
 </head>
 <body>
-  <div class="top-bar">
-    <span data-key="idioma">Idioma:</span>
-    <button class="btn-lang" data-lang="es" id="btn-es" data-key="idioma-es">Español</button>
-    <button class="btn-lang" data-lang="he" id="btn-he" data-key="idioma-he">עברית</button>
-    <span data-key="moneda">Moneda:</span>
-    <button class="btn-currency" data-currency="ARS" id="btn-ars" data-key="ARS">ARS</button>
-    <button class="btn-currency" data-currency="USD" id="btn-usd" data-key="USD">USD</button>
-    <button class="btn-currency" data-currency="ILS" id="btn-ils" data-key="ILS">ILS</button>
-    <button class="btn-currency" data-currency="EUR" id="btn-eur" data-key="EUR">EUR</button>
-    <a href="index.html" class="back-link" id="back-link" data-key="volver_btn">⬅ Volver al itinerario</a>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <h2>Argentina Aventura Familiar</h2>
+      <p>Cargando tu itinerario...</p>
+    </div>
   </div>
 
-  <main>
-    <h1 data-key="tituloPrincipal">Itinerario Familiar por Argentina</h1>
-    <p data-key="bienvenidaPrincipal">¡Bienvenidos! Haz clic en cada ciudad para ver información, mapas y recomendaciones.</p>
-    
-    <div class="tarjetas-grid">
-      <div class="tarjeta-ciudad">
-        <img src="docs/imagenes/buenosaires/buenosaires.jpg" alt="Buenos Aires" class="ciudad-foto-grid">
-        <div class="tarjeta-contenido">
-          <h2 data-key="buenosaires_title">Buenos Aires</h2>
-          <p data-key="buenosaires_resena">Ciudad cosmopolita, ideal para familias.</p>
-          <a href="ciudades/buenosaires.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
-        </div>
-      </div>
-      <div class="tarjeta-ciudad">
-        <img src="docs/imagenes/rosario/rosario.jpg" alt="Rosario" class="ciudad-foto-grid">
-        <div class="tarjeta-contenido">
-          <h2 data-key="rosario_title">Rosario</h2>
-          <p data-key="rosario_resena">Río, parques y cultura joven.</p>
-          <a href="ciudades/rosario.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
-        </div>
-      </div>
-      <div class="tarjeta-ciudad">
-        <img src="docs/imagenes/bariloche/bariloche.jpg" alt="Bariloche" class="ciudad-foto-grid">
-        <div class="tarjeta-contenido">
-          <h2 data-key="bariloche_title">Bariloche</h2>
-          <p data-key="bariloche_resena">Montañas, lagos y chocolate en la Patagonia.</p>
-          <a href="ciudades/bariloche.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
-        </div>
-      </div>
-      <div class="tarjeta-ciudad">
-        <img src="docs/imagenes/mendoza/mendoza.jpg" alt="Mendoza" class="ciudad-foto-grid">
-        <div class="tarjeta-contenido">
-          <h2 data-key="mendoza_title">Mendoza</h2>
-          <p data-key="mendoza_resena">Viñedos, montañas y aventura.</p>
-          <a href="ciudades/mendoza.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
-        </div>
-      </div>
-      <div class="tarjeta-ciudad">
-        <img src="docs/imagenes/malargue/malargue.jpg" alt="Malargüe" class="ciudad-foto-grid">
-        <div class="tarjeta-contenido">
-          <h2 data-key="malargue_title">Malargüe</h2>
-          <p data-key="malargue_resena">Naturaleza, volcanes y aventura en el sur mendocino.</p>
-          <a href="ciudades/malargue.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
-        </div>
-      </div>
-      <div class="tarjeta-ciudad">
-        <img src="docs/imagenes/jujuy/jujuy.jpg" alt="Jujuy" class="ciudad-foto-grid">
-        <div class="tarjeta-contenido">
-          <h2 data-key="jujuy_title">Jujuy</h2>
-          <p data-key="jujuy_resena">Colores, cultura y paisajes únicos del norte argentino.</p>
-          <a href="ciudades/jujuy.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
-        </div>
-      </div>
-      <div class="tarjeta-ciudad">
-        <img src="docs/imagenes/iguazu/iguazu.jpg" alt="Iguazú" class="ciudad-foto-grid">
-        <div class="tarjeta-contenido">
-          <h2 data-key="iguazu_title">Iguazú</h2>
-          <p data-key="iguazu_resena">Las cataratas más impresionantes de Sudamérica.</p>
-          <a href="ciudades/iguazu.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
-        </div>
-      </div>
-      <div class="tarjeta-ciudad">
-        <img src="docs/imagenes/corrientes/corrientes.jpg" alt="Corrientes" class="ciudad-foto-grid">
-        <div class="tarjeta-contenido">
-          <h2 data-key="corrientes_title">Corrientes</h2>
-          <p data-key="corrientes_resena">Chamamé, río y playas en el litoral argentino.</p>
-          <a href="ciudades/corrientes.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
-        </div>
-      </div>
-      <div class="tarjeta-ciudad">
-        <img src="docs/imagenes/ibera/ibera.jpg" alt="Iberá" class="ciudad-foto-grid">
-        <div class="tarjeta-contenido">
-          <h2 data-key="ibera_title">Iberá</h2>
-          <p data-key="ibera_resena">Esteros, fauna y naturaleza virgen.</p>
-          <a href="ciudades/ibera.html" class="explore_btn" data-key="explore_btn">Explorar más detalles</a>
-        </div>
-      </div>
-    </div>
+  <!-- Main App -->
+  <div id="root"></div>
 
-    <h2 data-key="transporte">Transporte entre ciudades</h2>
-    <table>
-      <thead>
-        <tr>
-          <th data-key="desde">Desde</th>
-          <th data-key="hasta">Hasta</th>
-          <th data-key="medio">Medio</th>
-          <th data-key="tiempo">Tiempo</th>
-          <th data-key="precio">Precio aprox.</th>
-          <th data-key="compania">Compañía</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-key="buenosaires_title">Buenos Aires</td>
-          <td data-key="rosario_title">Rosario</td>
-          <td data-key="bus">Bus</td>
-          <td>4h 30m</td>
-          <td>ARS 12.000</td>
-          <td><a href="https://www.plataforma10.com.ar/" target="_blank">Plataforma 10</a></td>
-        </tr>
-        <tr>
-          <td data-key="buenosaires_title">Buenos Aires</td>
-          <td data-key="bariloche_title">Bariloche</td>
-          <td data-key="avion">Avión</td>
-          <td>2h 20m</td>
-          <td>ARS 45.000</td>
-          <td><a href="https://www.aerolineas.com.ar/" target="_blank">Aerolíneas Argentinas</a></td>
-        </tr>
-        <tr>
-          <td data-key="bariloche_title">Bariloche</td>
-          <td data-key="mendoza_title">Mendoza</td>
-          <td data-key="avion">Avión</td>
-          <td>1h 50m</td>
-          <td>ARS 38.000</td>
-          <td><a href="https://www.aerolineas.com.ar/" target="_blank">Aerolíneas Argentinas</a></td>
-        </tr>
-        <tr>
-          <td data-key="mendoza_title">Mendoza</td>
-          <td data-key="malargue_title">Malargüe</td>
-          <td data-key="bus">Bus</td>
-          <td>5h 00m</td>
-          <td>ARS 10.000</td>
-          <td><a href="https://www.plataforma10.com.ar/" target="_blank">Plataforma 10</a></td>
-        </tr>
-        <tr>
-          <td data-key="buenosaires_title">Buenos Aires</td>
-          <td data-key="jujuy_title">Jujuy</td>
-          <td data-key="avion">Avión</td>
-          <td>2h 10m</td>
-          <td>ARS 40.000</td>
-          <td><a href="https://www.aerolineas.com.ar/" target="_blank">Aerolíneas Argentinas</a></td>
-        </tr>
-        <tr>
-          <td data-key="buenosaires_title">Buenos Aires</td>
-          <td data-key="iguazu_title">Iguazú</td>
-          <td data-key="avion">Avión</td>
-          <td>1h 50m</td>
-          <td>ARS 36.000</td>
-          <td><a href="https://www.aerolineas.com.ar/" target="_blank">Aerolíneas Argentinas</a></td>
-        </tr>
-        <tr>
-          <td data-key="corrientes_title">Corrientes</td>
-          <td data-key="ibera_title">Iberá</td>
-          <td data-key="bus">Bus</td>
-          <td>3h 00m</td>
-          <td>ARS 7.000</td>
-          <td><a href="https://www.plataforma10.com.ar/" target="_blank">Plataforma 10</a></td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- Scripts -->
+  <script type="module" src="/src/index.tsx"></script>
 
-    <h2 data-key="mapaInteractivoTitulo">Mapa Interactivo del Viaje Familiar</h2>
-    <div id="map"></div>
-  </main>
-
-  <section id="conversor-moneda">
-    <h2 data-key="conversor_moneda_titulo">Conversor de moneda</h2>
-    <form id="form-conversor">
-      <input type="number" id="monto" placeholder="Monto" data-key="conversor_moneda_monto" required>
-      <select id="moneda-origen">
-        <option value="ARS" data-key="ARS">ARS</option>
-        <option value="USD" data-key="USD">USD</option>
-        <option value="EUR" data-key="EUR">EUR</option>
-        <option value="ILS" data-key="ILS">ILS</option>
-      </select>
-      <span>→</span>
-      <select id="moneda-destino">
-        <option value="ARS" data-key="ARS">ARS</option>
-        <option value="USD" data-key="USD">USD</option>
-        <option value="EUR" data-key="EUR">EUR</option>
-        <option value="ILS" data-key="ILS">ILS</option>
-      </select>
-      <button type="submit" data-key="conversor_moneda_convertir">Convertir</button>
-    </form>
-    <div id="resultado-conversor"></div>
-  </section>
-
-  <section id="packing-list">
-    <h2 data-key="packing_title">Lista de equipaje</h2>
-    <div>
-      <input type="text" id="packing-input" placeholder="¿Qué más llevar?" data-key="packing_placeholder">
-      <select id="packing-type">
-        <option value="essential" data-key="packing_essential">Esencial</option>
-        <option value="optional" data-key="packing_optional">Opcional</option>
-      </select>
-      <button id="packing-add" data-key="packing_add">Agregar</button>
-    </div>
-    <div class="packing-columns">
-      <div>
-        <h3 data-key="packing_essential">Esenciales</h3>
-        <ul id="packing-essentials"></ul>
-      </div>
-      <div>
-        <h3 data-key="packing_optional">Opcionales</h3>
-        <ul id="packing-optionals"></ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="ia-consulta">
-    <h2 data-key="ia_titulo">Consulta a IA experta en viajes familiares</h2>
-    <form id="ia-form">
-      <input type="text" id="ia-pregunta" placeholder="Escribe tu pregunta..." data-key="ia_placeholder" required>
-      <button type="submit" id="ia-enviar" data-key="ia_enviar">Consultar</button>
-    </form>
-    <div id="ia-resultado"></div>
-  </section>
-
-  <footer class="footer">
-    <p data-key="footer_copyright">© 2025 Viaje Familiar Argentina</p>
-  </footer>
-
-  <script src="js/i18n.js"></script>
-  <script src="js/moneda-mcp.js"></script>
-  <script src="js/conversor-moneda.js"></script>
-  <script src="js/packing-list.js"></script>
-  <script src="js/ia-consulta.js"></script>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- Service Worker Registration -->
   <script>
-    // Coordenadas aproximadas de las ciudades/destinos
-    const destinos = [
-      { nombre: "Buenos Aires", lat: -34.6037, lng: -58.3816 },
-      { nombre: "Rosario", lat: -32.9442, lng: -60.6505 },
-      { nombre: "Bariloche", lat: -41.1335, lng: -71.3103 },
-      { nombre: "Mendoza", lat: -32.8908, lng: -68.8272 },
-      { nombre: "Malargüe", lat: -35.4756, lng: -69.5846 },
-      { nombre: "Jujuy", lat: -24.1858, lng: -65.2995 },
-      { nombre: "Iguazú", lat: -25.5952, lng: -54.5736 },
-      { nombre: "Corrientes", lat: -27.4692, lng: -58.8306 },
-      { nombre: "Iberá", lat: -28.5535, lng: -57.2822 }
-    ];
-    const map = L.map('map').setView([-32.5, -60], 5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Leaflet | © OpenStreetMap contributors'
-    }).addTo(map);
-    destinos.forEach(dest => {
-      L.marker([dest.lat, dest.lng]).addTo(map)
-        .bindPopup(dest.nombre);
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW: Registered successfully', registration.scope);
+
+            // Check for updates
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              if (newWorker) {
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    // New content available, notify user
+                    if (confirm('Nueva versión disponible. ¿Recargar la aplicación?')) {
+                      window.location.reload();
+                    }
+                  }
+                });
+              }
+            });
+          })
+          .catch(error => {
+            console.log('SW: Registration failed', error);
+          });
+      });
+    }
+
+    // Remove loading screen when React app loads
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.body.classList.add('app-loaded');
+      }, 1000);
     });
+
+    // PWA Install prompt handling
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      console.log('PWA: Install prompt available');
+      e.preventDefault();
+      deferredPrompt = e;
+
+      // Show install button or notification
+      const installButton = document.createElement('button');
+      installButton.textContent = '📱 Instalar App';
+      installButton.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #4f46e5;
+        color: white;
+        border: none;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      `;
+
+      installButton.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          console.log('PWA: Install outcome:', outcome);
+          deferredPrompt = null;
+          installButton.remove();
+        }
+      });
+
+      document.body.appendChild(installButton);
+
+      // Auto-hide after 10 seconds
+      setTimeout(() => {
+        if (installButton.parentNode) {
+          installButton.remove();
+        }
+      }, 10000);
+    });
+
+    // Track PWA usage
+    window.addEventListener('appinstalled', (e) => {
+      console.log('PWA: App installed successfully');
+      deferredPrompt = null;
+    });
+
+    // Handle offline/online status
+    function updateOnlineStatus() {
+      const status = navigator.onLine ? 'online' : 'offline';
+      console.log('PWA: Status changed to', status);
+
+      // Show status indicator
+      const existingIndicator = document.getElementById('connection-status');
+      if (existingIndicator) existingIndicator.remove();
+
+      if (!navigator.onLine) {
+        const indicator = document.createElement('div');
+        indicator.id = 'connection-status';
+        indicator.textContent = '📶 Modo Offline';
+        indicator.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #f59e0b;
+          color: white;
+          padding: 8px 16px;
+          font-size: 14px;
+          z-index: 1001;
+          border-radius: 0 0 8px 8px;
+        `;
+        document.body.appendChild(indicator);
+      }
+    }
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    // Initial status check
+    updateOnlineStatus();
   </script>
 </body>
 </html>
