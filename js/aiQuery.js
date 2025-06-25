@@ -50,3 +50,4 @@ function initAiQuery() {
 
 // Exponer para main.js
 window.initAiQuery = initAiQuery;
+

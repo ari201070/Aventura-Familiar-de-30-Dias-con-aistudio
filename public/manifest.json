@@ -1,13 +1,17 @@
 
 {
-  "name": "Aventura Familiar Argentina",
-  "short_name": "Viaje AR",
-  "description": "Itinerario interactivo para un viaje familiar de 30 días por Argentina.",
-  "start_url": ".",
+  "name": "Argentina Aventura Familiar - 30 Días",
+  "short_name": "Viaje Argentina",
+  "description": "Itinerario interactivo completo para un viaje familiar de 30 días por Argentina. Incluye mapas, conversor de moneda, lista de equipaje y consultas IA offline.",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#f0f9ff",
   "theme_color": "#4f46e5",
-  "orientation": "portrait-primary",
+  "categories": ["travel", "navigation", "lifestyle"],
+  "lang": "es",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
@@ -21,5 +25,41 @@
       "sizes": "512x512",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Conversor de Moneda",
+      "short_name": "Moneda",
+      "description": "Convierte precios entre ARS, USD, EUR, ILS",
+      "url": "/#converter",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Lista de Equipaje",
+      "short_name": "Equipaje",
+      "description": "Gestiona tu lista de equipaje",
+      "url": "/#packing",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Mapa Interactivo",
+      "short_name": "Mapa",
+      "description": "Explora las ciudades del itinerario",
+      "url": "/#map",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
 }
